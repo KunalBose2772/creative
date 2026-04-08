@@ -1,0 +1,9 @@
+<?php require_once APP_PATH . '/views/components/hero.php'; ?>
+<?php require_once APP_PATH . '/views/components/trust.php'; ?>
+<?php require_once APP_PATH . '/views/components/services.php'; ?>
+<?php require_once APP_PATH . '/views/components/work.php'; ?>
+<?php require_once APP_PATH . '/views/components/stats.php'; ?>
+<?php require_once APP_PATH . '/views/components/process.php'; ?>
+<?php require_once APP_PATH . '/views/components/why.php'; ?>
+<?php require_once APP_PATH . '/views/components/testimonials.php'; ?>
+<?php require_once APP_PATH . '/views/components/cta.php'; ?>

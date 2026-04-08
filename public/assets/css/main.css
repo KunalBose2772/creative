@@ -1,0 +1,343 @@
+/* =============================================
+   CREA8VE COOL — main.css
+   Design System, Base Styles, Layout
+   ============================================= */
+
+/* ---------- Google Fonts ---------- */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
+/* ---------- CSS Variables ---------- */
+:root {
+  --primary-gradient: linear-gradient(135deg, #6A5AE0, #E83E8C, #FF7A18);
+  --primary-gradient-hover: linear-gradient(135deg, #7B6CF0, #F04A9B, #FF8B30);
+  --primary-start: #6A5AE0;
+  --primary-mid: #E83E8C;
+  --primary-end: #FF7A18;
+  --text-dark: #111111;
+  --text-mid: #333333;
+  --text-light: #666666;
+  --text-muted: #999999;
+  --border: #EAEAEA;
+  --bg: #F9E4BC;
+  --bg-soft: #F0DFC0;
+  --bg-card: #FFFFFF;
+  --shadow-sm: 0 2px 12px rgba(0, 0, 0, 0.06);
+  --shadow-md: 0 8px 32px rgba(0, 0, 0, 0.10);
+  --shadow-lg: 0 20px 60px rgba(0, 0, 0, 0.14);
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 24px;
+  --radius-xl: 32px;
+  --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  --brutal-border: 2px solid var(--text-dark);
+  --brutal-shadow: 6px 6px 0px var(--text-dark);
+  --brutal-shadow-hover: 10px 10px 0px var(--text-dark);
+}
+
+/* ---------- Reset & Base ---------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-size: 16px;
+  line-height: 1.7;
+  color: var(--text-dark);
+  background: #FFFFFF;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ---------- Typography ---------- */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Clash Display', -apple-system, sans-serif;
+  font-weight: 600;
+  line-height: 0.95;
+  color: var(--text-dark);
+  letter-spacing: -0.02em;
+}
+
+h1 {
+  font-size: clamp(50px, 8vw, 100px);
+  letter-spacing: -0.04em;
+}
+
+h2 {
+  font-size: clamp(36px, 5vw, 64px);
+  letter-spacing: -0.03em;
+}
+
+h3 {
+  font-size: clamp(22px, 2.5vw, 32px);
+  letter-spacing: -0.01em;
+}
+
+p {
+  color: var(--text-light);
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* ---------- Utility ---------- */
+.bg-light-soft {
+  background: #FAFAFB;
+}
+
+.section-padding {
+  padding: 90px 0;
+}
+
+/* ---------- Gradient Text ---------- */
+.gradient-text {
+  background: var(--primary-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ---------- Section Header ---------- */
+.section-tag {
+  display: inline-block;
+  background: linear-gradient(135deg, rgba(106, 90, 224, 0.1), rgba(232, 62, 140, 0.1));
+  color: var(--primary-start);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 6px 16px;
+  border-radius: 50px;
+  border: 1px solid rgba(106, 90, 224, 0.2);
+}
+
+.section-title {
+  font-size: clamp(26px, 3vw, 42px);
+  font-weight: 800;
+  color: var(--text-dark);
+}
+
+.section-subtitle {
+  font-size: 17px;
+  color: var(--text-light);
+  max-width: 560px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ---------- Buttons ---------- */
+.btn-gradient {
+  background: var(--primary-gradient);
+  color: #fff !important;
+  border: var(--brutal-border);
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 16px;
+  padding: 16px 36px !important;
+  transition: var(--transition);
+  box-shadow: var(--brutal-shadow);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-gradient:hover {
+  transform: translate(-3px, -3px);
+  box-shadow: var(--brutal-shadow-hover);
+}
+
+.btn-gradient span,
+.btn-gradient i {
+  position: relative;
+  z-index: 1;
+}
+
+.btn-gradient span,
+.btn-gradient i {
+  position: relative;
+  z-index: 1;
+}
+
+.btn-outline-custom {
+  background: transparent;
+  color: var(--text-dark) !important;
+  border: var(--brutal-border);
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 16px;
+  padding: 16px 36px !important;
+  transition: var(--transition);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--brutal-shadow);
+}
+
+.btn-outline-custom:hover {
+  background: var(--bg-soft);
+  transform: translate(-3px, -3px);
+  box-shadow: var(--brutal-shadow-hover);
+}
+
+/* ---------- Bento Graphics & Utility ---------- */
+.bento-card {
+  border-radius: var(--radius-lg);
+  border: var(--brutal-border);
+  box-shadow: var(--brutal-shadow);
+  transition: var(--transition);
+  background: var(--bg-card);
+  overflow: hidden;
+}
+
+.bento-card:hover {
+  transform: translate(-3px, -3px);
+  box-shadow: var(--brutal-shadow-hover);
+}
+
+.bento-main {
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  pointer-events: none;
+  overflow: visible !important;
+}
+
+.bento-main:hover {
+  transform: none;
+  box-shadow: none;
+}
+
+.bento-main * {
+  pointer-events: auto;
+}
+
+.bento-marquee {
+  background: var(--text-dark) !important;
+  color: #fff;
+  border-color: var(--text-dark);
+}
+
+.marquee-track {
+  animation: marqueeRoll 15s linear infinite;
+}
+
+@keyframes marqueeRoll {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* ---------- Brand ---------- */
+.brand-icon {
+  width: 38px;
+  height: 38px;
+  background: var(--primary-gradient);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 18px;
+  flex-shrink: 0;
+}
+
+.brand-icon-sm {
+  width: 30px;
+  height: 30px;
+  font-size: 14px;
+  border-radius: 8px;
+}
+
+.brand-name {
+  font-size: 20px;
+  font-weight: 800;
+  color: var(--text-dark);
+  letter-spacing: -0.02em;
+}
+
+.brand-accent {
+  background: var(--primary-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.brand-dot {
+  color: var(--primary-start);
+}
+
+/* ---------- Scroll to top ---------- */
+#scrollTop {
+  position: fixed;
+  bottom: 28px;
+  right: 28px;
+  width: 44px;
+  height: 44px;
+  background: var(--primary-gradient);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  cursor: pointer;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: var(--transition);
+  box-shadow: 0 4px 20px rgba(106, 90, 224, 0.4);
+  z-index: 999;
+}
+
+#scrollTop.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+#scrollTop:hover {
+  transform: translateY(-3px);
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 991px) {
+  .section-padding {
+    padding: 65px 0;
+  }
+}
+
+@media (max-width: 767px) {
+  .section-padding {
+    padding: 50px 0;
+  }
+
+  h1 {
+    font-size: clamp(30px, 8vw, 42px);
+  }
+}
