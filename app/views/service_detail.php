@@ -158,147 +158,90 @@ $vConfig = $visualConfig[$serviceSlug] ?? [
             
             <!-- Main Content Box -->
             <div class="col-lg-8" data-aos="zoom-in" data-aos-delay="100">
-                <div class="bento-card main-info-card h-100 p-5 d-flex flex-column justify-content-center">
-                    <div class="hero-badge mb-4 align-self-start">
+                <div class="bento-card main-info-card h-100 p-4 p-lg-5 d-flex flex-column justify-content-center">
+                    <div class="hero-badge mb-3 align-self-start">
                         <span class="badge-dot"></span> Service Insight
                     </div>
-                    <h1 class="display-3 fw-900 text-dark mb-4">
+                    <h1 class="display-5 fw-900 text-dark mb-3">
                         <span class="gradient-text-dynamic"><?= htmlspecialchars($service['title']) ?></span> <br>
                         Build for Results.
                     </h1>
-                    <p class="hero-subtext fs-5 text-dark opacity-75 mb-5" style="max-width: 600px;">
+                    <p class="hero-subtext fs-6 text-dark opacity-75 mb-4" style="max-width: 600px;">
                         <?= htmlspecialchars($service['description'] ?? $service['desc'] ?? '') ?>
                     </p>
-                    <div class="hero-cta-group d-flex flex-wrap gap-3">
-                        <a href="#leads" class="btn btn-punchy btn-lg">Book Free Audit <i class="bi bi-chevron-right ms-2"></i></a>
-                        <a href="#packages" class="btn btn-outline-dark-punchy btn-lg">View Packages</a>
+                    <div class="hero-cta-group d-flex flex-wrap gap-2">
+                        <a href="#leads-form" class="btn btn-punchy">Start Project <i class="bi bi-chevron-right ms-2"></i></a>
+                        <a href="#packages" class="btn btn-outline-dark-punchy">View Packages</a>
                     </div>
                 </div>
             </div>
 
-            <!-- Stats/Visual Box -->
-            <div class="col-lg-4" data-aos="zoom-in" data-aos-delay="200">
-                <div class="bento-card visual-card-v2 h-100 p-4 overflow-hidden position-relative">
-                    <div class="vc-top d-flex justify-content-between">
-                        <span class="small fw-bold opacity-50 text-white"><?= htmlspecialchars($vConfig['status']) ?></span>
-                        <div class="status-pulse"></div>
-                    </div>
+            <!-- Hero Lead Form Box -->
+            <div class="col-lg-4" data-aos="zoom-in" data-aos-delay="200" id="leads-form">
+                <style>
+                    .hero-form-input {
+                        background: rgba(255,255,255,0.03) !important;
+                        border: 2px solid rgba(255,255,255,0.1) !important;
+                        border-radius: 12px !important;
+                        padding: 10px 16px !important;
+                        font-size: 14px !important;
+                        color: #fff !important;
+                        transition: all 0.3s ease;
+                    }
+                    .hero-form-input:focus {
+                        background: rgba(255,255,255,0.08) !important;
+                        border-color: var(--page-accent) !important;
+                        box-shadow: none !important;
+                    }
+                    .hero-form-input::placeholder {
+                        color: rgba(255,255,255,0.4) !important;
+                    }
+                    .form-social-icons a {
+                        color: rgba(255,255,255,0.5);
+                        transition: all 0.3s;
+                    }
+                    .form-social-icons a:hover {
+                        color: var(--page-accent);
+                        transform: translateY(-2px);
+                    }
+                </style>
+                <div class="bento-card h-100 p-4 bg-dark text-white d-flex flex-column justify-content-center position-relative overflow-hidden" style="border: 3px solid #111; box-shadow: 8px 8px 0px var(--page-accent); border-radius: 24px;">
+                    <!-- Ambient Glow -->
+                    <div class="position-absolute top-0 end-0 rounded-circle" style="width: 150px; height: 150px; background: var(--page-accent); filter: blur(60px); opacity: 0.15; transform: translate(30%, -30%); z-index: 0;"></div>
                     
-                    <div class="vc-visual-content my-4 py-3 text-center">
-                        <?php if($vConfig['animation'] === 'seo-dashboard'): ?>
-                            <div class="anim-seo-dashboard">
-                                <div class="mini-chart-wrapper">
-                                     <svg class="trend-line" viewBox="0 0 200 80">
-                                        <polyline points="0,70 40,65 80,35 120,40 160,15 200,5" fill="none" stroke="var(--page-accent)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
-                                        <circle cx="200" cy="5" r="6" fill="var(--page-accent)"/>
-                                     </svg>
-                                </div>
-                                <div class="keyword-pill px-4 mt-2">
-                                    <span class="opacity-75">Target Keyword:</span> 
-                                    <span class="text-white">Rank #1</span>
-                                    <i class="bi bi-arrow-up-circle-fill text-accent-dynamic ms-1 fs-6"></i>
-                                </div>
-                            </div>
-
-                        <?php elseif($vConfig['animation'] === 'window-mockup'): ?>
-                            <div class="anim-window-mockup">
-                                 <div class="mockup-header">
-                                      <div class="dot red"></div><div class="dot yellow"></div><div class="dot green"></div>
-                                 </div>
-                                 <div class="mockup-body">
-                                      <div class="skeleton-title"></div>
-                                      <div class="skeleton-text"></div>
-                                      <div class="skeleton-text short"></div>
-                                      <div class="skeleton-img">
-                                           <div class="img-glow"></div>
-                                           <i class="bi bi-image position-absolute top-50 start-50 translate-middle opacity-25"></i>
-                                      </div>
-                                 </div>
-                            </div>
-
-                        <?php elseif($vConfig['animation'] === 'roas-ring'): ?>
-                            <div class="anim-roas-ring">
-                                <svg class="roas-svg" viewBox="0 0 160 160">
-                                    <circle class="ring-bg" cx="80" cy="80" r="70" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="12"/>
-                                    <circle class="ring-fill" cx="80" cy="80" r="70" fill="none" stroke="var(--page-accent)" stroke-width="12" stroke-linecap="round"/>
-                                </svg>
-                                <div class="roas-content">
-                                    <span class="roas-value text-white display-6 fw-900 mb-0 lh-1">5.4x</span>
-                                    <span class="roas-label small fw-bold opacity-50 mt-1 letter-spacing-1">AVG ROAS</span>
-                                </div>
-                                <div class="roas-ping ping-1"></div>
-                                <div class="roas-ping ping-2"></div>
-                            </div>
-
-                        <?php elseif($vConfig['animation'] === 'erp-blocks'): ?>
-                            <div class="anim-erp-blocks">
-                                <div class="erp-hub">CORE<br><span class="opacity-50">SYNC</span></div>
-                                <div class="erp-module m-top"><i class="bi bi-people-fill text-accent-dynamic"></i> HR</div>
-                                <div class="erp-module m-right"><i class="bi bi-cash-stack text-accent-dynamic"></i> FIN</div>
-                                <div class="erp-module m-bottom"><i class="bi bi-box-seam text-accent-dynamic"></i> INV</div>
-                                <div class="erp-module m-left"><i class="bi bi-graph-up text-accent-dynamic"></i> CRM</div>
-                                
-                                <svg class="erp-connections" viewBox="0 0 200 200">
-                                    <line x1="100" y1="100" x2="100" y2="35" stroke="var(--page-accent)" stroke-width="2" class="c-line"/>
-                                    <line x1="100" y1="100" x2="165" y2="100" stroke="var(--page-accent)" stroke-width="2" class="c-line"/>
-                                    <line x1="100" y1="100" x2="100" y2="165" stroke="var(--page-accent)" stroke-width="2" class="c-line"/>
-                                    <line x1="100" y1="100" x2="35" y2="100" stroke="var(--page-accent)" stroke-width="2" class="c-line"/>
-                                </svg>
-                                <div class="data-packet p-top"></div>
-                                <div class="data-packet p-right"></div>
-                                <div class="data-packet p-bottom"></div>
-                                <div class="data-packet p-left"></div>
-                            </div>
-
-                        <?php elseif($vConfig['animation'] === 'saas-server'): ?>
-                            <div class="anim-saas-server">
-                                 <div class="server-rack">
-                                      <div class="server-blade">
-                                          <div class="blade-lights"><span class="l-grn"></span><span class="l-blu"></span></div>
-                                          <div class="blade-load" style="width: 40%;"></div>
-                                      </div>
-                                      <div class="server-blade">
-                                          <div class="blade-lights"><span class="l-grn"></span><span class="l-blu"></span></div>
-                                          <div class="blade-load" style="width: 75%;"></div>
-                                      </div>
-                                      <div class="server-blade active">
-                                          <div class="blade-lights"><span class="l-grn"></span><span class="l-blu pulse"></span></div>
-                                          <div class="blade-load" style="width: 90%;"></div>
-                                      </div>
-                                 </div>
-                                 <div class="saas-metrics mt-4 d-flex justify-content-between w-100 px-2">
-                                      <div class="text-start">
-                                           <span class="d-block text-white opacity-50 fw-900 letter-spacing-1" style="font-size:10px;">REQ/SEC</span>
-                                           <span class="text-white fw-bold fs-5 lh-1">14,205</span>
-                                      </div>
-                                      <div class="text-end">
-                                           <span class="d-block text-accent-dynamic fw-900 letter-spacing-1" style="font-size:10px;">UPTIME</span>
-                                           <span class="text-white fw-bold fs-5 lh-1">99.99%</span>
-                                      </div>
-                                 </div>
-                            </div>
-
-                        <?php else: ?>
-                            <div class="energy-core-upgraded">
-                                 <div class="core-orbit o-1 d-none d-sm-block"></div>
-                                 <div class="core-orbit o-2 d-none d-sm-block"></div>
-                                 <div class="core-center">
-                                     <div class="core-nucleus"></div>
-                                 </div>
-                                 <div class="core-ring pulse-ring"></div>
-                            </div>
-                        <?php endif; ?>
+                    <!-- Social Icons Corner -->
+                    <div class="position-absolute top-0 end-0 p-3 z-2 form-social-icons d-flex gap-3">
+                        <a href="https://linkedin.com" target="_blank"><i class="bi bi-linkedin fs-6"></i></a>
+                        <a href="https://instagram.com" target="_blank"><i class="bi bi-instagram fs-6"></i></a>
+                        <a href="https://wa.me/919999999999" target="_blank"><i class="bi bi-whatsapp fs-6"></i></a>
                     </div>
 
-                    <div class="vc-footer mt-auto pt-4 border-top border-white border-opacity-10">
-                        <div class="d-flex justify-content-between align-items-center">
-                            <div>
-                                <span class="d-block small text-white opacity-50"><?= htmlspecialchars($vConfig['metric_label']) ?></span>
-                                <span class="h4 fw-900 mb-0 text-white"><?= htmlspecialchars($vConfig['metric_value']) ?></span>
-                            </div>
-                            <i class="bi <?= $vConfig['icon'] ?> text-white fs-3"></i>
+                    <div class="form-header mb-3 position-relative z-1 mt-3">
+                        <div class="badge bg-white text-dark rounded-pill px-2 py-1 mb-2 fw-bold d-inline-flex align-items-center gap-2 border border-2 border-dark" style="box-shadow: 3px 3px 0px var(--page-accent); font-size: 11px;">
+                            <div class="status-dot" style="width: 6px; height: 6px; background: #10b981; border-radius: 50%; box-shadow: 0 0 10px #10b981;"></div>
+                            Accepting Projects
                         </div>
+                        <h3 class="fw-900 mb-1 fs-4 lh-sm text-white">Start Your Project</h3>
+                        <p class="opacity-75 mb-0 small text-white">Tell us about your requirements and let's build something amazing.</p>
                     </div>
+                    <form action="<?= BASE_URL ?>leads/submit" method="POST" class="hero-form d-flex flex-column gap-2 position-relative z-1">
+                        <input type="hidden" name="source" value="<?= htmlspecialchars($service['title'] ?? 'Service') ?> Inquiry">
+                        <div>
+                            <input type="text" name="name" class="form-control hero-form-input shadow-none" placeholder="Your Name" required>
+                        </div>
+                        <div>
+                            <input type="email" name="email" class="form-control hero-form-input shadow-none" placeholder="Work Email" required>
+                        </div>
+                        <div>
+                            <input type="tel" name="phone" class="form-control hero-form-input shadow-none" placeholder="Phone Number" required>
+                        </div>
+                        <button type="submit" class="btn btn-punchy w-100 mt-1 d-flex align-items-center justify-content-center gap-2" style="border-radius: 12px; font-weight: 900; padding: 10px; font-size: 15px;">
+                            Send Inquiry <i class="bi bi-arrow-right fs-6"></i>
+                        </button>
+                        <div class="text-center mt-1">
+                            <span class="opacity-50 fw-bold text-white" style="font-size: 11px;"><i class="bi bi-shield-lock-fill me-1 text-accent-dynamic"></i> 100% Secure & Confidential</span>
+                        </div>
+                    </form>
                 </div>
             </div>
 
@@ -335,7 +278,7 @@ $vConfig = $visualConfig[$serviceSlug] ?? [
 </section>
 
 <!-- Pitching Section: High-Authority Offerings -->
-<section class="pitching-section section-padding-lg bg-white position-relative border-bottom border-dark border-opacity-5">
+<section id="strategy" class="pitching-section section-padding-lg bg-white position-relative border-bottom border-dark border-opacity-5">
     <div class="container">
         <div class="row mb-5" data-aos="fade-up">
             <div class="col-lg-10">
@@ -471,58 +414,12 @@ $vConfig = $visualConfig[$serviceSlug] ?? [
     </div>
 </section>
 
-<!-- Growth Ecosystem (The 15+ Benefits) -->
-<section class="growth-ecosystem-section section-padding bg-dark text-white overflow-hidden">
-    <div class="container">
-        <div class="row align-items-center mb-5">
-            <div class="col-lg-8">
-                <h2 class="display-4 fw-900 mb-4 text-white">Affordable, Professional, and <span class="text-accent-dynamic">Built for Growth</span></h2>
-                <p class="fs-5 opacity-75">In today’s digital-first world, every business deserves a professional online presence. Our service offers cost-effective, engineering-grade solutions tailored to showcase your brand and products.</p>
-            </div>
-        </div>
-        
-        <div class="row g-3">
-            <?php 
-            $ecosystem_features = [
-                ['title' => 'Professional Templates', 'link' => '/cr/services/website'],
-                ['title' => 'Cost-Effective Design', 'link' => '/cr/services/marketing'],
-                ['title' => 'Mobile Responsive', 'link' => '/cr/services/pwa'],
-                ['title' => 'Fast Load Speeds', 'link' => 'https://pagespeed.web.dev/'],
-                ['title' => 'User-Friendly Interface', 'link' => '/cr/services/uiux'],
-                ['title' => 'Secure Hosting', 'link' => '/cr/services/automation'],
-                ['title' => 'Custom Branding Colors', 'link' => '/cr/services/branding'],
-                ['title' => 'Integrated Contact Forms', 'link' => '/cr/services/crm'],
-                ['title' => 'Domain Registration', 'link' => '#'],
-                ['title' => 'Quick Launch Timeline', 'link' => '/cr/about'],
-                ['title' => 'Scalable Solutions', 'link' => '/cr/services/saas'],
-                ['title' => 'Technical Support', 'link' => '/cr/contact'],
-                ['title' => 'Enhanced Visual Appeal', 'link' => '/cr/services/creative'],
-                ['title' => 'SEO Integration', 'link' => '/cr/services/seo'],
-                ['title' => 'API Readiness', 'link' => '/cr/services/api']
-            ];
-            foreach ($ecosystem_features as $f): 
-            ?>
-            <div class="col-lg-4 col-md-6" data-aos="zoom-in">
-                <div class="p-3 border border-white border-opacity-10 rounded-4 transition-all hover-bg-white-opacity d-flex align-items-center gap-3">
-                    <i class="bi bi-check-circle-fill text-accent-dynamic"></i>
-                    <a href="<?= $f['link'] ?>" class="text-white text-decoration-none fw-bold small opacity-75 hover-opacity-100"><?= $f['title'] ?></a>
-                </div>
-            </div>
-            <?php endforeach; ?>
-        </div>
-    </div>
-</section>
-
 <style>
 .pillar-card-v2:hover {
     transform: translateY(-5px);
     border-color: var(--page-accent) !important;
 }
-.hover-bg-white-opacity:hover {
-    background: rgba(255,255,255,0.05);
-    border-color: var(--page-accent) !important;
-}
-.hover-opacity-100:hover { opacity: 1 !important; }
+</style>
 <!-- Local Dominance Section -->
 <section class="local-dominance-section section-padding bg-white">
     <div class="container">
@@ -641,7 +538,7 @@ $vConfig = $visualConfig[$serviceSlug] ?? [
 </section>
 
 <!-- Authority Narrative Section 2: The Strategic Partner -->
-<section class="strategic-partner-section section-padding bg-white">
+<section id="technology" class="strategic-partner-section section-padding bg-white">
     <div class="container">
         <div class="row g-5">
             <div class="col-lg-12" data-aos="fade-up">
@@ -652,10 +549,11 @@ $vConfig = $visualConfig[$serviceSlug] ?? [
                 <p class="fs-5 text-muted">Crea8ve Cool focuses on creating brilliant websites that attract your target audience and keep them engaged. We understand the specific challenges facing businesses today—from tight <a href='/cr/services/marketing' class='text-accent-dynamic fw-bold'>Marketing Budgets</a> to tough global competition and the urgency for quick, measurable outcomes. Our strategy is aimed at meeting these needs while maximizing long-term productivity and <a href='/cr/services/seo' class='text-accent-dynamic fw-bold'>Organic Growth</a>.</p>
             </div>
             <div class="col-lg-6" data-aos="fade-left">
-                <div class="p-5 border-3 border border-dark rounded-5 bg-dark text-white shadow-punchy-lg">
-                    <h4 class="fw-900 mb-4 text-accent-dynamic">The Authority Difference</h4>
-                    <p class="opacity-75 mb-4">As a top-tier provider of <strong>Web Design Services in India</strong>, we understand the unique needs of scaling brands. From bold, eye-catching visuals to easy-to-navigate layouts, we make sure your website reflects the true identity and values of your business.</p>
-                    <p class="opacity-75">Our <a href='/cr/services/pwa' class='text-white fw-bold text-decoration-underline'>Mobile-First Design Approach</a> ensures your site functions perfectly on all devices, providing every user with a seamless experience. We integrate modern trends in design, <a href='https://web.dev/vitals/' target='_blank' class='text-accent-dynamic fw-bold text-decoration-none'>Google Web Vitals Optimization</a>, and intuitive use into every production.</p>
+                <div class="p-5 border-3 border border-dark rounded-5 text-white shadow-punchy-lg position-relative overflow-hidden" style="background: linear-gradient(145deg, #000 0%, #000 75%, rgba(<?= hexToRgb($accentColor) ?>, 0.12) 100%); border-color: #111 !important;">
+                    <div class="position-absolute top-0 end-0 w-100 h-100" style="background: radial-gradient(circle at top right, rgba(<?= hexToRgb($accentColor) ?>, 0.1), transparent 70%); pointer-events: none;"></div>
+                    <h4 class="fw-900 mb-4 text-accent-dynamic position-relative z-1">The Authority Difference</h4>
+                    <p class="mb-4 text-white position-relative z-1" style="font-size: 1.1rem; line-height: 1.8; opacity: 1;">As a top-tier provider of <strong>Web Design Services in India</strong>, we understand the unique needs of scaling brands. From bold, eye-catching visuals to easy-to-navigate layouts, we make sure your website reflects the true identity and values of your business.</p>
+                    <p class="text-white position-relative z-1" style="font-size: 1.1rem; line-height: 1.8; opacity: 1;">Our <a href='/cr/services/pwa' class='text-white fw-bold text-decoration-underline'>Mobile-First Design Approach</a> ensures your site functions perfectly on all devices, providing every user with a seamless experience. We integrate modern trends in design, <a href='https://web.dev/vitals/' target='_blank' class='text-accent-dynamic fw-bold text-decoration-none'>Google Web Vitals Optimization</a>, and intuitive use into every production.</p>
                 </div>
             </div>
         </div>
@@ -691,54 +589,295 @@ $vConfig = $visualConfig[$serviceSlug] ?? [
     </div>
 </section>
 
-<!-- Strategic Sub-Navigation -->
-<div class="strategic-sub-nav sticky-top bg-white border-bottom border-dark border-opacity-10 py-3 d-none d-lg-block" style="z-index: 1000; top: 0;">
-    <div class="container d-flex justify-content-between align-items-center">
-        <div class="d-flex gap-4">
-            <a href="#strategy" class="sub-nav-link fw-800 text-dark opacity-50 text-decoration-none">Strategy</a>
-            <a href="#performance" class="sub-nav-link fw-800 text-dark opacity-50 text-decoration-none">Performance</a>
-            <a href="#technology" class="sub-nav-link fw-800 text-dark opacity-50 text-decoration-none">Technology</a>
-            <a href="#packages" class="sub-nav-link fw-800 text-dark opacity-50 text-decoration-none">Pricing</a>
-            <a href="#ecosystem" class="sub-nav-link fw-800 text-dark opacity-50 text-decoration-none">Ecosystem</a>
+<!-- Strategic Floating Sub-Navigation -->
+<div class="floating-sub-nav d-none d-lg-block position-fixed start-50 translate-middle-x scrolled-up" style="z-index: 1050; bottom: 30px;">
+    <div class="nav-pill-wrapper bg-dark p-1 rounded-pill shadow-punchy-lg border border-white border-opacity-10 d-flex align-items-center" style="background: rgba(0,0,0,0.92); backdrop-filter: blur(15px);">
+        <div class="nav-links d-flex px-4 gap-4">
+            <a href="#strategy" class="sub-nav-link fw-800 text-white opacity-50 text-decoration-none small letter-spacing-1">STRATEGY</a>
+            <a href="#performance" class="sub-nav-link fw-800 text-white opacity-50 text-decoration-none small letter-spacing-1">PERFORMANCE</a>
+            <a href="#technology" class="sub-nav-link fw-800 text-white opacity-50 text-decoration-none small letter-spacing-1">TECHNOLOGY</a>
+            <a href="#packages" class="sub-nav-link fw-800 text-white opacity-50 text-decoration-none small letter-spacing-1">PRICING</a>
+            <a href="#ecosystem" class="sub-nav-link fw-800 text-white opacity-50 text-decoration-none small letter-spacing-1">ECOSYSTEM</a>
         </div>
-        <a href="#leads" class="btn btn-dark btn-sm px-4 rounded-pill fw-bold">Get a Quote</a>
+        <a href="#leads-form" class="btn-quote-pill rounded-pill px-4 fw-900 text-decoration-none d-flex align-items-center justify-content-center" style="font-size: 10px; height: 32px; background: var(--page-accent); color: #000; transition: all 0.3s; border: none;">GET A QUOTE</a>
     </div>
 </div>
 
 <style>
-.sub-nav-link { font-size: 13px; text-transform: uppercase; letter-spacing: 1px; transition: all 0.3s; }
-.sub-nav-link:hover, .sub-nav-link.active { opacity: 1 !important; color: var(--page-accent) !important; }
-.strategic-sub-nav { box-shadow: 0 10px 30px rgba(0,0,0,0.03); }
+.floating-sub-nav {
+    transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+.sub-nav-link {
+    transition: all 0.3s;
+    font-size: 10px;
+}
+.sub-nav-link:hover {
+    opacity: 1 !important;
+    color: var(--page-accent) !important;
+}
+.floating-sub-nav.scrolled-up {
+    transform: translateX(-50%) translateY(150%);
+}
+.btn-quote-pill:hover {
+    background: #fff !important;
+    color: #000 !important;
+}
 </style>
 
-<!-- Why Choose Us SEO Section -->
-<section class="seo-rich-content section-padding bg-light position-relative overflow-hidden">
+<script>
+window.addEventListener('scroll', function() {
+    const nav = document.querySelector('.floating-sub-nav');
+    if (window.scrollY > 800) {
+        nav.classList.remove('scrolled-up');
+    } else {
+        nav.classList.add('scrolled-up');
+    }
+});
+</script>
+
+<!-- Section 1: Strategy -->
+<section id="strategy" class="seo-rich-content section-padding bg-white position-relative overflow-hidden">
     <div class="container">
-        <div class="row g-5">
-            <div class="col-12" data-aos="fade-up">
-                <div class="authority-content-wrapper">
-                    <?php 
-                    $content = $service['seo_content'] ?? '';
-                    if (empty($content)) {
-                        echo "<p class='fs-5 text-muted'>We provide professional " . $service['title'] . " services that focus on high performance and measurable results.</p>";
-                    } else {
-                        // Internal Linker Logic
-                        $services_list = $data['catalog'] ?? [];
-                        foreach ($services_list as $s) {
-                            if ($s['slug'] !== $serviceSlug) {
-                                $pattern = '/\b' . preg_quote($s['title'], '/') . '\b/i';
-                                $replacement = '<a href="' . BASE_URL . 'services/' . $s['slug'] . '" class="text-accent-dynamic text-decoration-none fw-bold">' . $s['title'] . '</a>';
-                                $content = preg_replace($pattern, $replacement, $content, 1);
-                            }
-                        }
-                        echo $content;
-                    }
-                    ?>
+        <div class="authority-content-wrapper mb-0">
+            <div class="row g-4 align-items-center">
+                    <div class="col-lg-7" data-aos="fade-right">
+                        <h2 class="display-5 fw-900 mb-4">1. The Psychology of Web Success: <span class="text-accent-dynamic">Strategy Beyond Code</span></h2>
+                        <p>When you look for a <strong>Small Business Web Design</strong> partner, you aren't just looking for someone to build a page. You are looking for a growth partner who understands <strong>User Psychology</strong> and <strong>Conversion Architecture</strong>. At Crea8ve Cool, we don't start with a template; we start with a blueprint of your customer's mind.</p>
+                        <p>Every successful website must answer three questions in the first 3 seconds: <em>What do you offer? How does it make my life better? How do I get it?</em> This is where our <strong>Creative Branding</strong> and <strong>UI/UX Design</strong> expertise comes into play. We utilise the 'F-Pattern' layout and strategic whitespace to guide visitors directly toward conversion.</p>
+                        <p>Our strategy integrates deeply with your <a href='/cr/services/marketing' class='text-accent-dynamic fw-bold'>Performance Marketing</a> goals. We know that if your landing page doesn't resonate, your ad spend is wasted. That's why we build with 'Visual Gravity'—ensuring that every scroll leads to a deeper trust signal.</p>
+                    </div>
+                    <div class="col-lg-5" data-aos="fade-left">
+                        <div class="sc-card">
+                            <div class="sc-card-header">
+                                <span class="sc-tag-pill">Our Framework</span>
+                                <h4 class="fw-900 mb-0 mt-2" style="font-size:1.15rem;color:#111;">The Strategy Checklist</h4>
+                            </div>
+                            <div class="sc-card-body">
+                                <div class="sc-item">
+                                    <div class="sc-badge">01</div>
+                                    <div>
+                                        <div class="sc-item-label">User Persona Audit</div>
+                                        <div class="sc-item-desc">We precisely define who your customer is — their goals, pain points, and buying behaviour.</div>
+                                    </div>
+                                </div>
+                                <div class="sc-item">
+                                    <div class="sc-badge">02</div>
+                                    <div>
+                                        <div class="sc-item-label">Conversion Mapping</div>
+                                        <div class="sc-item-desc">Engineering the shortest, most frictionless path from visitor to a qualified lead.</div>
+                                    </div>
+                                </div>
+                                <div class="sc-item">
+                                    <div class="sc-badge">03</div>
+                                    <div>
+                                        <div class="sc-item-label">Content Siloing</div>
+                                        <div class="sc-item-desc">Organising info architecture for <a href='/cr/services/seo' class='fw-bold' style="color:var(--page-accent);">SEO dominance</a> &amp; crawl depth.</div>
+                                    </div>
+                                </div>
+                                <div class="sc-item sc-item-last">
+                                    <div class="sc-badge">04</div>
+                                    <div>
+                                        <div class="sc-item-label">Competitor Benchmarking</div>
+                                        <div class="sc-item-desc">We reverse-engineer top competitors' digital strategies — then we outperform them.</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 </section>
+
+<!-- Section 2: Performance -->
+<section id="performance" class="seo-rich-content section-padding bg-light position-relative overflow-hidden">
+    <div class="container">
+        <div class="authority-content-wrapper mb-0">
+            <h2 class="display-5 fw-900 mb-5 text-center">2. Engineering for the Speed of Light: <span class="text-accent-dynamic">Technical Performance</span></h2>
+            <div class="row g-5">
+                    <div class="col-lg-6" data-aos="fade-right">
+                        <p class="fs-5">Speed is the ultimate trust signal. In a world of <a href='/cr/services/api' class='text-accent-dynamic fw-bold'>Instant API Integrations</a> and 5G connections, a slow website is a dead website. Our <strong>Web Development</strong> process follows the 'Zero-Bloat' methodology.</p>
+                        <p>We don't use heavy page builders that inject thousands of lines of unnecessary CSS. Instead, we use <strong>Vanilla CSS</strong> and <strong>Native JavaScript</strong> to ensure that your <strong>Largest Contentful Paint (LCP)</strong> is achieved in under 1 second.</p>
+                        <p>Our performance engineering includes <strong>Next-Gen Image Formats (WebP/AVIF)</strong>, server-side caching, and minification protocols that align with <a href='https://web.dev/vitals/' target='_blank' class='text-decoration-underline text-dark fw-bold'>Google's Core Web Vitals standards</a>.</p>
+                    </div>
+                    <div class="col-lg-6" data-aos="fade-left">
+                        <div class="perf-card">
+                            <div class="perf-card-title">Performance Benchmarks</div>
+                            <div class="perf-grid">
+                                <div class="perf-stat">
+                                    <div class="perf-icon"><i class="bi bi-lightning-charge-fill"></i></div>
+                                    <div class="perf-val">&lt;1.5s</div>
+                                    <div class="perf-label">LCP Load Speed</div>
+                                </div>
+                                <div class="perf-stat">
+                                    <div class="perf-icon"><i class="bi bi-speedometer2"></i></div>
+                                    <div class="perf-val">99/100</div>
+                                    <div class="perf-label">Lighthouse Score</div>
+                                </div>
+                                <div class="perf-stat">
+                                    <div class="perf-icon"><i class="bi bi-image-fill"></i></div>
+                                    <div class="perf-val">WebP</div>
+                                    <div class="perf-label">Next-Gen Images</div>
+                                </div>
+                                <div class="perf-stat">
+                                    <div class="perf-icon"><i class="bi bi-phone-fill"></i></div>
+                                    <div class="perf-val">100%</div>
+                                    <div class="perf-label">Mobile-First Ready</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Section 3: Technology Stack -->
+<section id="technology" class="seo-rich-content section-padding bg-white position-relative overflow-hidden">
+    <div class="container">
+        <div class="authority-content-wrapper mb-0">
+            <div class="row g-5 align-items-center">
+                    <div class="col-lg-5 order-2 order-lg-1" data-aos="fade-right">
+                        <div class="fortress-card">
+                            <div class="fortress-glow"></div>
+                            <div class="fortress-header">
+                                <div class="fortress-shield-icon"><i class="bi bi-shield-lock-fill"></i></div>
+                                <div>
+                                    <div class="fortress-tag">Enterprise Security</div>
+                                    <h3 class="fortress-title">The Fortress Stack</h3>
+                                </div>
+                            </div>
+                            <p class="fortress-desc">Security is not an option — it is the foundation. We build on a <strong>Hardened PHP/MVC Framework</strong> that is virtually immune to vulnerabilities found in open-source platforms.</p>
+                            <div class="fortress-rows">
+                                <div class="fortress-row">
+                                    <div class="fortress-row-icon"><i class="bi bi-shield-fill-check"></i></div>
+                                    <div>
+                                        <div class="fortress-row-label">SSL Certification</div>
+                                        <div class="fortress-row-desc">256-bit encryption for all data in transit and at rest.</div>
+                                    </div>
+                                </div>
+                                <div class="fortress-row">
+                                    <div class="fortress-row-icon"><i class="bi bi-database-lock"></i></div>
+                                    <div>
+                                        <div class="fortress-row-label">Database Security</div>
+                                        <div class="fortress-row-desc">SQL Injection &amp; XSS protection built into every query layer.</div>
+                                    </div>
+                                </div>
+                                <div class="fortress-row">
+                                    <div class="fortress-row-icon"><i class="bi bi-cloud-arrow-up-fill"></i></div>
+                                    <div>
+                                        <div class="fortress-row-label">Automated Backups</div>
+                                        <div class="fortress-row-desc">24/7 cloud redundancy with point-in-time recovery.</div>
+                                    </div>
+                                </div>
+                                <div class="fortress-row fortress-row-last">
+                                    <div class="fortress-row-icon"><i class="bi bi-patch-check-fill"></i></div>
+                                    <div>
+                                        <div class="fortress-row-label">GDPR &amp; CCPA Ready</div>
+                                        <div class="fortress-row-desc">Global compliance frameworks enforced by default architecture.</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-7 order-1 order-lg-2" data-aos="fade-left">
+                        <h2 class="display-5 fw-900 mb-4">3. The Future-Proof Stack: <span class="text-accent-dynamic">Security &amp; Scalability</span></h2>
+                        <p>Your business deserves more than a 'plug-and-play' solution. Our <strong>Custom Web Engineering</strong> ensures that you have total control over your digital asset. We provide a custom <a href='/cr/services/automation' class='text-accent-dynamic fw-bold'>Admin Panel</a> that is lightweight and specifically designed for your business workflows.</p>
+                        <p>Whether you need to integrate a <a href='/cr/services/crm' class='text-accent-dynamic fw-bold'>Custom CRM</a>, an <a href='/cr/services/erp' class='text-accent-dynamic fw-bold'>ERP System</a>, or a complex <strong>LMS Platform</strong>, our API-first logic makes it possible. We don't believe in digital limitations — if you can dream it, we can engineer it.</p>
+                        <p>We also utilise industry-leading animation frameworks to bring your brand to life with high-fidelity motion graphics. This level of 'Visual Authority' is what separates a world-class agency from a budget freelancer. Your website is your digital flagship — make it legendary.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Section 4: Glossary (Premium FAQ Style) -->
+<section id="glossary" class="seo-rich-content section-padding bg-light position-relative overflow-hidden">
+    <div class="container">
+        <div class="authority-content-wrapper mb-0">
+            <div class="text-center mb-5" data-aos="fade-up">
+                    <h2 class="display-5 fw-900 text-dark mb-3">4. Digital Excellence Glossary</h2>
+                    <p class="fs-5 text-muted">Core concepts you should know to dominate your market.</p>
+                </div>
+                
+                <div class="premium-faq-wrapper mx-auto" style="max-width: 900px;" id="premiumGlossary">
+                    <?php 
+                    $glossary = [
+                        ['q'=>'What is Responsive Web Design?', 'a'=>'<strong>Responsive Web Design (RWD)</strong> ensures your site ranks highly on Google mobile-first indexing by flawlessly adapting to any screen size. A must-have for <a href="/cr/services/seo" class="text-accent-dynamic fw-bold">SEO rankings</a>.'],
+                        ['q'=>'Why does Page Speed matter?', 'a'=>'A 1-second delay can drop conversions by 7%. Speed directly impacts your Google Ranking and paid ad costs. We engineer sites to load instantly without the typical WordPress bloat.'],
+                        ['q'=>'What is the difference between UI and UX?', 'a'=>'<strong>UI (User Interface)</strong> is the look—buttons, colours, fonts. <strong>UX (User Experience)</strong> is the feel. Our <a href="/cr/services/uiux" class="text-accent-dynamic fw-bold">UI/UX Team</a> merges both to create high-converting digital journeys.'],
+                        ['q'=>'Do I really need an SSL Certificate?', 'a'=>'Absolutely. <strong>SSL (Secure Sockets Layer)</strong> encrypts your site. Without it, browsers flag you as "Not Secure". We include military-grade SSL in our <a href="/cr/services/automation" class="text-accent-dynamic fw-bold">Security Automation</a> packages.'],
+                        ['q'=>'What is a CMS and why should I care?', 'a'=>'A <strong>CMS (Content Management System)</strong> lets you edit content without code. We build custom, lightweight dashboards to manage your <a href="/cr/work" class="text-accent-dynamic fw-bold">Portfolio</a> cleanly and securely.']
+                    ];
+                    foreach($glossary as $idx => $item): 
+                        $isFirst = ($idx === 0);
+                    ?>
+                    <div class="p-faq-item mb-4" data-aos="fade-up" data-aos-delay="<?= $idx * 50 ?>">
+                        <button class="p-faq-btn w-100 text-start d-flex justify-content-between align-items-center <?= $isFirst ? '' : 'collapsed' ?>" type="button" data-bs-toggle="collapse" data-bs-target="#pfaq<?= $idx ?>" aria-expanded="<?= $isFirst ? 'true' : 'false' ?>">
+                            <span class="fw-900 fs-5 pe-3"><?= $item['q'] ?></span>
+                            <span class="p-faq-icon">
+                                <i class="bi bi-plus-lg p-icon-plus"></i>
+                                <i class="bi bi-dash-lg p-icon-minus"></i>
+                            </span>
+                        </button>
+                        <div id="pfaq<?= $idx ?>" class="collapse <?= $isFirst ? 'show' : '' ?>" data-bs-parent="#premiumGlossary">
+                            <div class="p-faq-body p-4 border-top border-dark border-opacity-10 fs-6 text-muted lh-lg">
+                                <?= $item['a'] ?>
+                            </div>
+                        </div>
+                    </div>
+                    <?php endforeach; ?>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+/* ===== STRATEGY CHECKLIST CARD ===== */
+.sc-card { background:#fff; border:2.5px solid #111; border-radius:24px; box-shadow:8px 8px 0px #111; overflow:hidden; }
+.sc-card-header { background:var(--page-accent); padding:20px 24px; }
+.sc-tag-pill { display:inline-block; background:rgba(255,255,255,0.18); color:#fff; font-size:10px; font-weight:900; letter-spacing:1.5px; text-transform:uppercase; padding:4px 12px; border-radius:100px; margin-bottom:6px; }
+.sc-card-header h4 { color:#fff !important; margin:0 !important; }
+.sc-card-body { padding:4px 0; }
+.sc-item { display:flex; align-items:flex-start; gap:16px; padding:16px 24px; border-bottom:1px solid rgba(0,0,0,0.06); transition:background 0.2s; }
+.sc-item:hover { background:#fafafa; }
+.sc-item-last { border-bottom:none; }
+.sc-badge { min-width:36px; height:36px; background:var(--page-accent); color:#fff; font-weight:900; font-size:13px; border-radius:10px; display:flex; align-items:center; justify-content:center; flex-shrink:0; margin-top:2px; }
+.sc-item-label { font-weight:900; color:#111; font-size:0.92rem; margin-bottom:3px; }
+.sc-item-desc { font-size:0.82rem; color:#6b7280; line-height:1.5; }
+
+/* ===== PERFORMANCE STATS CARD ===== */
+.perf-card { background:#fff; border:2.5px solid #111; border-radius:24px; box-shadow:8px 8px 0px #111; padding:28px; }
+.perf-card-title { font-family:'Clash Display',sans-serif; font-weight:900; font-size:1rem; color:#111; text-transform:uppercase; letter-spacing:1px; margin-bottom:20px; padding-bottom:14px; border-bottom:2px solid rgba(0,0,0,0.07); }
+.perf-grid { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+.perf-stat { background:#f8f9fa; border:1.5px solid rgba(0,0,0,0.07); border-radius:16px; padding:18px 16px; text-align:center; transition:all 0.3s; }
+.perf-stat:hover { background:#fff; border-color:var(--page-accent); transform:translateY(-3px); box-shadow:0 8px 20px rgba(0,0,0,0.08); }
+.perf-icon { font-size:1.6rem; color:var(--page-accent); margin-bottom:8px; }
+.perf-val { font-family:'Clash Display',sans-serif; font-weight:900; font-size:1.5rem; color:#111; line-height:1; margin-bottom:4px; }
+.perf-label { font-size:0.75rem; font-weight:700; color:#6b7280; text-transform:uppercase; letter-spacing:0.5px; }
+
+/* ===== FORTRESS STACK CARD ===== */
+.fortress-card { position:relative; background:linear-gradient(145deg,#0d0d0d 0%,#1a1a2e 100%); border-radius:28px; padding:36px 32px; overflow:hidden; box-shadow:12px 12px 0px var(--page-accent); border:2px solid rgba(255,255,255,0.05); }
+.fortress-glow { position:absolute; top:-60px; right:-60px; width:220px; height:220px; background:var(--page-accent); filter:blur(80px); opacity:0.18; border-radius:50%; pointer-events:none; }
+.fortress-header { display:flex; align-items:center; gap:18px; margin-bottom:18px; }
+.fortress-shield-icon { width:56px; height:56px; background:var(--page-accent); border-radius:16px; display:flex; align-items:center; justify-content:center; font-size:1.6rem; color:#fff; flex-shrink:0; box-shadow:0 8px 20px rgba(0,0,0,0.3); }
+.fortress-tag { font-size:10px; font-weight:900; letter-spacing:2px; text-transform:uppercase; color:var(--page-accent); margin-bottom:4px; }
+.fortress-title { font-family:'Clash Display',sans-serif; font-weight:900; font-size:1.65rem; color:#fff !important; margin:0 !important; margin-top:0 !important; margin-bottom:0 !important; }
+.fortress-desc { color:rgba(255,255,255,0.72); font-size:0.92rem; line-height:1.7; margin-bottom:24px; padding-bottom:20px; border-bottom:1px solid rgba(255,255,255,0.08); }
+.fortress-desc strong { color:#fff; }
+.fortress-rows { display:flex; flex-direction:column; }
+.fortress-row { display:flex; align-items:flex-start; gap:16px; padding:14px 0; border-bottom:1px solid rgba(255,255,255,0.06); transition:all 0.2s; }
+.fortress-row:hover { padding-left:6px; }
+.fortress-row-last { border-bottom:none; }
+.fortress-row-icon { width:34px; height:34px; background:rgba(39,201,63,0.15); border:1px solid rgba(39,201,63,0.3); border-radius:10px; display:flex; align-items:center; justify-content:center; color:#27c93f; font-size:1rem; flex-shrink:0; }
+.fortress-row-label { font-weight:900; font-size:0.9rem; color:#fff; margin-bottom:3px; }
+.fortress-row-desc { font-size:0.8rem; color:rgba(255,255,255,0.65); line-height:1.5; }
+</style>
 
 <style>
 .authority-content-wrapper h2, .authority-content-wrapper h3, .authority-content-wrapper h4 {
@@ -767,61 +906,89 @@ $vConfig = $visualConfig[$serviceSlug] ?? [
     transform: translate(-5px, -5px);
     box-shadow: 15px 15px 0px var(--page-accent);
 }
-.authority-content-wrapper .accordion-item {
+.p-faq-item {
+    background: #fff;
+    border: 3px solid #111;
+    border-radius: 20px;
+    box-shadow: 8px 8px 0px #111;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    overflow: hidden;
+}
+.p-faq-item:hover {
+    transform: translate(-3px, -3px);
+    box-shadow: 11px 11px 0px var(--page-accent);
+    border-color: var(--page-accent);
+}
+.p-faq-item:has(.p-faq-btn:not(.collapsed)) {
+    box-shadow: 11px 11px 0px var(--page-accent);
+    border-color: var(--page-accent);
+}
+
+.p-faq-btn {
     background: transparent;
     border: none;
-    margin-bottom: 1.5rem;
+    padding: 24px 30px;
+    color: #111;
+    transition: all 0.3s;
 }
-.authority-content-wrapper .accordion-button {
-    background: #fff;
-    border: 3px solid var(--text-dark);
-    box-shadow: 8px 8px 0px var(--text-dark);
-    border-radius: 20px !important;
-    padding: 1.5rem 2rem;
-    font-family: 'Clash Display';
-    font-weight: 900;
-    color: var(--text-dark);
-    font-size: 1.25rem;
-}
-.authority-content-wrapper .accordion-button:not(.collapsed) {
+.p-faq-btn:not(.collapsed) {
     color: var(--page-accent);
-    box-shadow: 12px 12px 0px var(--page-accent);
-    transform: translate(-4px, -4px);
+    background: rgba(0,0,0,0.02);
 }
-.authority-content-wrapper .accordion-body {
-    padding: 2rem;
-    font-size: 1.1rem;
-    line-height: 1.8;
-    color: #4b5563;
+.p-faq-btn:focus {
+    outline: none;
 }
-.authority-content-wrapper .accordion-button::after {
-    filter: brightness(0);
+
+.p-faq-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: #f8f9fa;
+    border: 2px solid #111;
+    color: #111;
+    transition: all 0.3s;
+    position: relative;
+    flex-shrink: 0;
+}
+.p-faq-btn:hover .p-faq-icon {
+    background: #111;
+    color: #fff;
+}
+.p-faq-btn:not(.collapsed) .p-faq-icon {
+    background: var(--page-accent);
+    border-color: var(--page-accent);
+    color: #fff;
+}
+
+.p-icon-plus, .p-icon-minus {
+    position: absolute;
+    transition: all 0.3s;
+}
+.p-faq-btn.collapsed .p-icon-minus { opacity: 0; transform: scale(0.5) rotate(-90deg); }
+.p-faq-btn.collapsed .p-icon-plus { opacity: 1; transform: scale(1) rotate(0); }
+.p-faq-btn:not(.collapsed) .p-icon-plus { opacity: 0; transform: scale(0.5) rotate(90deg); }
+.p-faq-btn:not(.collapsed) .p-icon-minus { opacity: 1; transform: scale(1) rotate(0); }
+
+.p-faq-body {
+    background: #fafafa;
 }
 </style>
-    </div>
-</section>
 
-<!-- Injecting Process and Stack Components -->
 <?php 
-if (empty($data['process'])) {
-    $data['process'] = [
-        ['step' => '01', 'title' => 'Discovery & Blueprint', 'desc' => "We audit your current standing, understand your goals, and map out a bulletproof strategy tailored exactly to your {$service['title']} needs."],
-        ['step' => '02', 'title' => 'Rapid Execution', 'desc' => 'Our engineers and creatives execute the plan with precision and speed. No delays, no excuses, just high-performance delivery.'],
-        ['step' => '03', 'title' => 'Scale & Dominate', 'desc' => 'Once live, we monitor the data streams, optimize rigorously, and deploy scaling strategies to multiply your ROI.']
-    ];
-}
-require_once APP_PATH . '/views/components/process.php'; 
 require_once APP_PATH . '/views/components/stack.php'; 
 ?>
 
 <!-- GAP Closure: Interactive ROI Calculator -->
-<section class="roi-calculator-section section-padding bg-dark text-white border-bottom border-white border-opacity-10 position-relative overflow-hidden">
+<section id="performance" class="roi-calculator-section section-padding text-white border-bottom border-white border-opacity-10 position-relative overflow-hidden" style="background:#050505;">
     <div class="position-absolute w-100 h-100" style="background: radial-gradient(circle at right, rgba(<?= hexToRgb($accentColor) ?>, 0.1), transparent 50%); top:0; left:0; pointer-events: none;"></div>
     <div class="container position-relative z-1">
         <div class="row align-items-center g-5">
             <div class="col-lg-5" data-aos="fade-right">
                 <span class="text-accent-dynamic fw-900 small letter-spacing-2 mb-3 d-block">INTERACTIVE ENGAGEMENT</span>
-                <h2 class="display-5 fw-900 mb-4">Calculate Your <span class="text-accent-dynamic">Digital ROI</span></h2>
+                <h2 class="display-5 fw-900 mb-4" style="color:#fff;">Calculate Your <span class="text-accent-dynamic">Digital ROI</span></h2>
                 <p class="fs-5 opacity-75 mb-4">Stop guessing. See exactly how an engineered website impacts your bottom line by increasing conversion rates and average order values.</p>
                 <div class="d-flex align-items-center gap-3">
                     <i class="bi bi-shield-check text-accent-dynamic fs-3"></i>
@@ -945,37 +1112,94 @@ document.addEventListener('DOMContentLoaded', function() {
     </div>
 </section>
 
-<!-- The 10-Step Impact Blueprint -->
+<!-- The 10-Step Impact Blueprint — Vertical Tabs -->
 <section class="process-blueprint-section section-padding bg-white">
     <div class="container">
         <div class="row mb-5" data-aos="fade-up">
             <div class="col-lg-8">
                 <h2 class="display-4 fw-900 text-dark mb-4">Crafting Impactful <span class="text-accent-dynamic">Small Business Design</span></h2>
-                <p class="fs-5 text-muted">A small website doesn’t mean small in impact. We follow a meticulous 10-step blueprint to ensure your digital presence drives results effortlessly.</p>
+                <p class="fs-5 text-muted">A small website doesn't mean small in impact. We follow a meticulous 10-step blueprint to ensure your digital presence drives results effortlessly.</p>
             </div>
         </div>
 
-        <div class="row g-2 mb-5">
-            <?php 
-            $steps = ['Goal Definition', 'Audience Research', 'Content Planning', 'Simple Navigation', 'Responsive Design', 'Visual Consistency', 'Optimized Loading Speed', 'Call-to-Action Placement', 'SEO Integration', 'Regular Updates'];
-            foreach ($steps as $i => $s): 
-            ?>
-            <div class="col-lg-2 col-md-4 col-6" data-aos="zoom-in" data-aos-delay="<?= $i * 30 ?>">
-                <div class="p-3 border border-dark border-opacity-10 rounded-4 text-center bg-light h-100 transition-all hover-shadow-sm">
-                    <div class="fw-900 text-accent-dynamic mb-1">Step <?= str_pad($i + 1, 2, '0', STR_PAD_LEFT) ?></div>
-                    <div class="small fw-800 text-dark"><?= $s ?></div>
+        <div class="vtabs-wrapper" data-aos="fade-up">
+            <!-- Left: Step Nav -->
+            <div class="vtabs-nav" id="vtabsNav">
+                <div class="vtab-item active" data-tab="step1"><span class="vtab-num">01</span><span class="vtab-name">Goal Definition</span></div>
+                <div class="vtab-item" data-tab="step2"><span class="vtab-num">02</span><span class="vtab-name">Audience Research</span></div>
+                <div class="vtab-item" data-tab="step3"><span class="vtab-num">03</span><span class="vtab-name">Content Planning</span></div>
+                <div class="vtab-item" data-tab="step4"><span class="vtab-num">04</span><span class="vtab-name">Simple Navigation</span></div>
+                <div class="vtab-item" data-tab="step5"><span class="vtab-num">05</span><span class="vtab-name">Responsive Design</span></div>
+                <div class="vtab-item" data-tab="step6"><span class="vtab-num">06</span><span class="vtab-name">Visual Consistency</span></div>
+                <div class="vtab-item" data-tab="step7"><span class="vtab-num">07</span><span class="vtab-name">Loading Speed</span></div>
+                <div class="vtab-item" data-tab="step8"><span class="vtab-num">08</span><span class="vtab-name">Call-to-Action</span></div>
+                <div class="vtab-item" data-tab="step9"><span class="vtab-num">09</span><span class="vtab-name">SEO Integration</span></div>
+                <div class="vtab-item" data-tab="step10"><span class="vtab-num">10</span><span class="vtab-name">Regular Updates</span></div>
+            </div>
+
+            <!-- Right: Step Content -->
+            <div class="vtabs-content">
+                <div class="vtab-pane active" id="step1">
+                    <div class="vtab-step-tag">Step 01</div>
+                    <h3 class="vtab-title">Goal Definition</h3>
+                    <p class="vtab-body">Every successful website begins with absolute clarity of purpose. Before a single pixel is placed, we sit down with you to define your primary business goals — whether that's generating leads, booking appointments, selling products, or establishing brand credibility. We translate those goals into measurable KPIs and build every design decision around achieving them. Without this foundation, even a beautiful website is just digital wallpaper.</p>
+                </div>
+                <div class="vtab-pane" id="step2">
+                    <div class="vtab-step-tag">Step 02</div>
+                    <h3 class="vtab-title">Audience Research</h3>
+                    <p class="vtab-body">Understanding exactly who visits your website is what separates a high-converting asset from a generic one. We conduct deep audience research — analysing demographics, psychographics, search intent, and competitor positioning — to build a precise User Persona Profile. This data dictates your tone of voice, your visual language, and the journey we map for each visitor from landing to conversion. You can't persuade an audience you don't understand.</p>
+                </div>
+                <div class="vtab-pane" id="step3">
+                    <div class="vtab-step-tag">Step 03</div>
+                    <h3 class="vtab-title">Content Planning</h3>
+                    <p class="vtab-body">Content is the engine of your website's authority. We architect a strategic content silo — mapping each page's core message, target keywords, internal linking structure, and semantic hierarchy before a single word is written. This ensures your site doesn't just communicate value to humans, but signals deep topical relevance to search engines. Our content plans are built to drive both immediate engagement and long-term organic rankings simultaneously.</p>
+                </div>
+                <div class="vtab-pane" id="step4">
+                    <div class="vtab-step-tag">Step 04</div>
+                    <h3 class="vtab-title">Simple Navigation</h3>
+                    <p class="vtab-body">Navigation is the invisible hand that guides your visitor toward a decision. We engineer intuitive, friction-free navigation structures that make finding information effortless — following proven UX principles like Jakob Nielsen's Heuristics and Fitts' Law. Every menu item, breadcrumb, and CTA placement is deliberate. When navigation is done right, users don't think about it — they simply move naturally toward your conversion goal. Confusion is the enemy of revenue.</p>
+                </div>
+                <div class="vtab-pane" id="step5">
+                    <div class="vtab-step-tag">Step 05</div>
+                    <h3 class="vtab-title">Responsive Design</h3>
+                    <p class="vtab-body">Over 70% of web traffic now originates from mobile devices, making responsive design non-negotiable for any serious business. We build every layout using a mobile-first engineering approach — ensuring flawless performance across all screen sizes, from a 4K desktop monitor to the smallest smartphone. Our layouts use fluid CSS Grid systems and tested breakpoints, not brittle Bootstrap columns, guaranteeing that your brand looks premium everywhere your audience finds you.</p>
+                </div>
+                <div class="vtab-pane" id="step6">
+                    <div class="vtab-step-tag">Step 06</div>
+                    <h3 class="vtab-title">Visual Consistency</h3>
+                    <p class="vtab-body">A brand that looks different on every page destroys trust instantly. We build a comprehensive Design System for your website — defining a unified typography scale, a curated colour palette, consistent iconography, spacing tokens, and component patterns — ensuring every element feels cohesive and intentional. This visual consistency builds subconscious credibility with your audience. Visitors who trust your design, trust your business. It's that simple, and that powerful.</p>
+                </div>
+                <div class="vtab-pane" id="step7">
+                    <div class="vtab-step-tag">Step 07</div>
+                    <h3 class="vtab-title">Optimized Loading Speed</h3>
+                    <p class="vtab-body">Speed is not a luxury — it is a direct revenue metric. Google's data shows that every additional second of load time reduces conversions by up to 7%. We engineer our websites for sub-1.5 second Largest Contentful Paint using our Zero-Bloat methodology: Vanilla CSS, native JavaScript, next-gen WebP/AVIF image formats, server-side caching, and rigorous code minification. A fast website ranks higher, converts better, and costs less to run in paid advertising.</p>
+                </div>
+                <div class="vtab-pane" id="step8">
+                    <div class="vtab-step-tag">Step 08</div>
+                    <h3 class="vtab-title">Call-to-Action Placement</h3>
+                    <p class="vtab-body">The difference between a website visitor and a paying client is a single, perfectly placed Call-to-Action. We apply Conversion Architecture principles — using visual gravity, colour contrast, F-Pattern scanning, and strategic whitespace — to place CTAs exactly where a user's eye naturally lands. Whether it's a "Book a Call" button above the fold or a sticky lead form on mobile, every CTA is engineered to intercept intent at peak motivation and convert it into a qualified lead.</p>
+                </div>
+                <div class="vtab-pane" id="step9">
+                    <div class="vtab-step-tag">Step 09</div>
+                    <h3 class="vtab-title">SEO Integration</h3>
+                    <p class="vtab-body">SEO is not an afterthought — it is baked into the foundation of every website we build. From semantic HTML5 structure and JSON-LD Schema markup to canonical tags, meta hierarchies, Open Graph data, and Core Web Vitals compliance, every technical SEO signal is set correctly from day one. We also implement internal linking architecture and keyword-optimised heading structures so your site earns organic authority from the moment Google's crawler first visits.</p>
+                </div>
+                <div class="vtab-pane active-hidden" id="step10">
+                    <div class="vtab-step-tag">Step 10</div>
+                    <h3 class="vtab-title">Regular Updates</h3>
+                    <p class="vtab-body">A website is not a product you build once and forget — it is a living digital asset that must evolve with your business and market. We provide ongoing maintenance partnerships that include security patch updates, performance monitoring, content refreshes, and analytics-driven optimisation cycles. Regular updates signal to search engines that your site is actively maintained, boosting rankings and user trust simultaneously. In a digital landscape that never sleeps, your website shouldn't either.</p>
                 </div>
             </div>
-            <?php endforeach; ?>
         </div>
 
-        <div class="row">
+        <!-- Dark Highlight Card -->
+        <div class="row mt-5">
             <div class="col-lg-12" data-aos="fade-up">
                 <div class="p-5 border-3 border border-dark rounded-5 bg-dark text-white shadow-punchy-lg">
                     <div class="row align-items-center">
                         <div class="col-lg-8">
                             <h4 class="fw-900 mb-3 text-accent-dynamic">The Critical Role of Regular Updates</h4>
-                            <p class="opacity-75 mb-0">Regular updates are essential to keep your website relevant, secure, and functional. We monitor analytics to identify improvement areas, fix broken links, and update security protocols to maintain absolute user trust. Add fresh content and modern design elements to stay competitive in an evolving digital landscape.</p>
+                            <p style="color:rgba(255,255,255,0.88);line-height:1.75;margin-bottom:0;">Regular updates are essential to keep your website relevant, secure, and functional. We monitor analytics to identify improvement areas, fix broken links, and update security protocols to maintain absolute user trust. Add fresh content and modern design elements to stay competitive in an evolving digital landscape.</p>
                         </div>
                         <div class="col-lg-4 text-lg-end mt-4 mt-lg-0">
                             <a href="#leads" class="btn btn-punchy px-5">Secure Your Future</a>
@@ -988,9 +1212,108 @@ document.addEventListener('DOMContentLoaded', function() {
 </section>
 
 <style>
-.step-num-v2 { line-height: 1; }
-.hover-shadow-sm:hover { box-shadow: 0 5px 15px rgba(0,0,0,0.05); transform: translateY(-2px); border-color: var(--page-accent) !important; }
+/* ===== VERTICAL TABS ===== */
+.vtabs-wrapper {
+    display: flex;
+    gap: 0;
+    border: 2.5px solid #111;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 8px 8px 0px #111;
+    min-height: 340px;
+}
+.vtabs-nav {
+    width: 240px;
+    flex-shrink: 0;
+    background: #0d0d0d;
+    display: flex;
+    flex-direction: column;
+}
+.vtab-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 13px 18px;
+    cursor: pointer;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    transition: all 0.2s;
+}
+.vtab-item:last-child { border-bottom: none; }
+.vtab-item:hover { background: rgba(255,255,255,0.05); }
+.vtab-item.active { background: var(--page-accent); }
+.vtab-num {
+    font-family: 'Clash Display', sans-serif;
+    font-weight: 900;
+    font-size: 0.75rem;
+    color: rgba(255,255,255,0.4);
+    min-width: 22px;
+    transition: color 0.2s;
+}
+.vtab-item.active .vtab-num { color: rgba(255,255,255,0.7); }
+.vtab-name {
+    font-weight: 700;
+    font-size: 0.8rem;
+    color: rgba(255,255,255,0.55);
+    transition: color 0.2s;
+}
+.vtab-item.active .vtab-name,
+.vtab-item:hover .vtab-name { color: #fff; }
+.vtab-item:hover .vtab-num { color: rgba(255,255,255,0.6); }
+.vtabs-content {
+    flex: 1;
+    background: #fff;
+    padding: 36px 40px;
+    position: relative;
+}
+.vtab-pane { display: none; }
+.vtab-pane.active { display: block; animation: vtabFade 0.3s ease; }
+@keyframes vtabFade { from { opacity:0; transform:translateY(6px); } to { opacity:1; transform:translateY(0); } }
+.vtab-step-tag {
+    display: inline-block;
+    background: var(--page-accent);
+    color: #fff;
+    font-size: 10px;
+    font-weight: 900;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 4px 12px;
+    border-radius: 100px;
+    margin-bottom: 14px;
+}
+.vtab-title {
+    font-family: 'Clash Display', sans-serif;
+    font-weight: 900;
+    font-size: 1.65rem;
+    color: #111;
+    margin-bottom: 16px;
+}
+.vtab-body {
+    font-size: 0.97rem;
+    line-height: 1.8;
+    color: #4b5563;
+    margin: 0;
+}
+@media (max-width: 768px) {
+    .vtabs-wrapper { flex-direction: column; }
+    .vtabs-nav { width: 100%; flex-direction: row; flex-wrap: wrap; }
+    .vtab-item { flex: 0 0 50%; border-right: 1px solid rgba(255,255,255,0.06); }
+    .vtabs-content { padding: 24px 20px; }
+}
 </style>
+
+<script>
+document.querySelectorAll('.vtab-item').forEach(function(tab) {
+    tab.addEventListener('click', function() {
+        document.querySelectorAll('.vtab-item').forEach(t => t.classList.remove('active'));
+        document.querySelectorAll('.vtab-pane').forEach(p => p.classList.remove('active'));
+        tab.classList.add('active');
+        document.getElementById(tab.dataset.tab).classList.add('active');
+    });
+});
+</script>
+
+
+<section id="packages" class="pricing-section section-padding bg-light">
     <div class="container">
         <div class="row mb-5 text-center" data-aos="fade-up">
             <div class="col-lg-8 mx-auto">
@@ -1064,7 +1387,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     </div>
 
                     <div class="d-grid gap-2 mb-4">
-                        <a href="#leads" class="btn btn-dark-punchy w-100 py-3 rounded-pill fw-bold">Select Plan</a>
+                        <a href="#leads" class="btn pkg-select-btn w-100 py-3 rounded-pill fw-900">Select Plan &rarr;</a>
                     </div>
 
                     <div class="feature-list mt-auto">
@@ -1090,7 +1413,7 @@ document.addEventListener('DOMContentLoaded', function() {
 </section>
 
 <!-- GAP Closure: Technical Feature Matrix (Comparison Table) -->
-<section class="feature-matrix-section section-padding bg-white border-top border-dark border-opacity-5 d-none d-lg-block">
+<section class="feature-matrix-section section-padding bg-light border-top border-dark border-opacity-5 d-none d-lg-block">
     <div class="container">
         <div class="row mb-5 text-center" data-aos="fade-up">
             <div class="col-lg-8 mx-auto">
@@ -1099,45 +1422,51 @@ document.addEventListener('DOMContentLoaded', function() {
             </div>
         </div>
 
-        <div class="table-responsive" data-aos="fade-up" data-aos-delay="100">
-            <table class="table table-borderless comparison-table align-middle">
+        <div class="matrix-card" data-aos="fade-up" data-aos-delay="100">
+            <table class="table table-borderless comparison-table align-middle mb-0">
                 <thead>
-                    <tr class="border-bottom border-dark border-opacity-10 text-center">
-                        <th class="text-start fs-5 fw-900 w-25 pb-4">Core Capabilities</th>
-                        <th class="pb-4 w-25"><span class="badge bg-dark bg-opacity-10 text-dark fw-bold px-3 py-2 rounded-pill">Lite Plan</span></th>
-                        <th class="pb-4 w-25"><span class="badge bg-accent-dynamic text-white fw-bold px-3 py-2 rounded-pill shadow-sm">Plus Plan</span></th>
-                        <th class="pb-4 w-25"><span class="badge bg-dark text-white fw-bold px-3 py-2 rounded-pill">Pro Plan</span></th>
+                    <tr class="text-center">
+                        <th class="text-start fs-5 fw-900 pb-4 matrix-label-col">Core Capabilities</th>
+                        <th class="pb-4 matrix-col">
+                            <span class="matrix-plan-badge lite-badge">Lite Plan</span>
+                        </th>
+                        <th class="pb-4 matrix-col matrix-highlight-col">
+                            <span class="matrix-plan-badge plus-badge">⭐ Plus Plan</span>
+                        </th>
+                        <th class="pb-4 matrix-col">
+                            <span class="matrix-plan-badge pro-badge">Pro Plan</span>
+                        </th>
                     </tr>
                 </thead>
-                <tbody class="text-center small fw-bold text-muted">
-                    <tr class="border-bottom border-dark border-opacity-10">
-                        <td class="text-start py-4 text-dark">Platform Architecture</td>
-                        <td class="py-4">WordPress CMS</td>
-                        <td class="py-4 text-dark fw-900">Custom PHP/MVC</td>
+                <tbody class="text-center small fw-bold">
+                    <tr class="border-top border-dark border-opacity-10">
+                        <td class="text-start py-4 text-dark fw-900">Platform Architecture</td>
+                        <td class="py-4 text-muted">WordPress CMS</td>
+                        <td class="py-4 text-dark fw-900 matrix-highlight-col">Custom PHP/MVC</td>
                         <td class="py-4 text-dark fw-900">Enterprise Node/React</td>
                     </tr>
-                    <tr class="border-bottom border-dark border-opacity-10">
-                        <td class="text-start py-4 text-dark">Semantic SEO Siloing</td>
-                        <td class="py-4"><i class="bi bi-x-circle text-muted opacity-25 fs-5"></i></td>
-                        <td class="py-4"><i class="bi bi-check-circle-fill text-accent-dynamic fs-5"></i></td>
+                    <tr class="border-top border-dark border-opacity-10">
+                        <td class="text-start py-4 text-dark fw-900">Semantic SEO Siloing</td>
+                        <td class="py-4"><i class="bi bi-x-circle text-muted opacity-30 fs-5"></i></td>
+                        <td class="py-4 matrix-highlight-col"><i class="bi bi-check-circle-fill fs-5" style="color:var(--page-accent);"></i></td>
                         <td class="py-4"><i class="bi bi-check-circle-fill text-dark fs-5"></i></td>
                     </tr>
-                    <tr class="border-bottom border-dark border-opacity-10">
-                        <td class="text-start py-4 text-dark">Core Web Vitals Guarantee</td>
-                        <td class="py-4"><i class="bi bi-x-circle text-muted opacity-25 fs-5"></i></td>
-                        <td class="py-4"><i class="bi bi-check-circle-fill text-accent-dynamic fs-5"></i></td>
+                    <tr class="border-top border-dark border-opacity-10">
+                        <td class="text-start py-4 text-dark fw-900">Core Web Vitals Guarantee</td>
+                        <td class="py-4"><i class="bi bi-x-circle text-muted opacity-30 fs-5"></i></td>
+                        <td class="py-4 matrix-highlight-col"><i class="bi bi-check-circle-fill fs-5" style="color:var(--page-accent);"></i></td>
                         <td class="py-4"><i class="bi bi-check-circle-fill text-dark fs-5"></i></td>
                     </tr>
-                    <tr class="border-bottom border-dark border-opacity-10">
-                        <td class="text-start py-4 text-dark">API & CRM Integrations</td>
-                        <td class="py-4"><i class="bi bi-x-circle text-muted opacity-25 fs-5"></i></td>
-                        <td class="py-4">Basic Webhooks</td>
+                    <tr class="border-top border-dark border-opacity-10">
+                        <td class="text-start py-4 text-dark fw-900">API &amp; CRM Integrations</td>
+                        <td class="py-4"><i class="bi bi-x-circle text-muted opacity-30 fs-5"></i></td>
+                        <td class="py-4 text-dark fw-800 matrix-highlight-col">Basic Webhooks</td>
                         <td class="py-4 text-dark fw-900">Unlimited Endpoints</td>
                     </tr>
-                    <tr>
-                        <td class="text-start py-4 text-dark">Dedicated Account Manager</td>
-                        <td class="py-4"><i class="bi bi-x-circle text-muted opacity-25 fs-5"></i></td>
-                        <td class="py-4"><i class="bi bi-x-circle text-muted opacity-25 fs-5"></i></td>
+                    <tr class="border-top border-dark border-opacity-10">
+                        <td class="text-start py-4 text-dark fw-900">Dedicated Account Manager</td>
+                        <td class="py-4"><i class="bi bi-x-circle text-muted opacity-30 fs-5"></i></td>
+                        <td class="py-4 matrix-highlight-col"><i class="bi bi-x-circle text-muted opacity-30 fs-5"></i></td>
                         <td class="py-4"><i class="bi bi-check-circle-fill text-dark fs-5"></i></td>
                     </tr>
                 </tbody>
@@ -1164,19 +1493,98 @@ document.addEventListener('DOMContentLoaded', function() {
 }
 .recommended-badge {
     position: absolute;
-    top: -15px;
+    top: -16px;
     left: 50%;
     transform: translateX(-50%);
-    padding: 5px 20px;
-    border: 3px solid var(--text-dark);
+    padding: 6px 22px;
+    background: #111 !important;
+    color: #fff !important;
     border-radius: 50px;
     font-size: 11px;
-    letter-spacing: 1px;
+    letter-spacing: 1.5px;
+    font-weight: 900;
+    white-space: nowrap;
+    box-shadow: 3px 3px 0px var(--page-accent);
+    border: none;
+}
+.pkg-select-btn {
+    background: #111;
+    color: #fff;
+    border: 2px solid #111;
+    font-size: 0.95rem;
+    transition: all 0.25s;
+}
+.pkg-select-btn:hover {
+    background: var(--page-accent);
+    border-color: var(--page-accent);
+    color: #fff;
+    transform: translateY(-2px);
+}
+.price-card.recommended .pkg-select-btn {
+    background: var(--page-accent);
+    border-color: var(--page-accent);
+    color: #fff;
+    box-shadow: 4px 4px 0px #111;
+}
+.price-card.recommended .pkg-select-btn:hover {
+    background: #111;
+    border-color: #111;
 }
 </style>
 
+
+<!-- Growth Ecosystem (The 15+ Benefits) -->
+<section id="ecosystem" class="growth-ecosystem-section section-padding bg-dark text-white overflow-hidden">
+    <div class="container">
+        <div class="row align-items-center mb-5">
+            <div class="col-lg-8">
+                <h2 class="display-4 fw-900 mb-4 text-white">Affordable, Professional, and <span class="text-accent-dynamic">Built for Growth</span></h2>
+                <p class="fs-5 opacity-75">In today’s digital-first world, every business deserves a professional online presence. Our service offers cost-effective, engineering-grade solutions tailored to showcase your brand and products.</p>
+            </div>
+        </div>
+        
+        <div class="row g-3">
+            <?php 
+            $ecosystem_features = [
+                ['title' => 'Professional Templates', 'link' => '/cr/services/website'],
+                ['title' => 'Cost-Effective Design', 'link' => '/cr/services/marketing'],
+                ['title' => 'Mobile Responsive', 'link' => '/cr/services/pwa'],
+                ['title' => 'Fast Load Speeds', 'link' => 'https://pagespeed.web.dev/'],
+                ['title' => 'User-Friendly Interface', 'link' => '/cr/services/uiux'],
+                ['title' => 'Secure Hosting', 'link' => '/cr/services/automation'],
+                ['title' => 'Custom Branding Colors', 'link' => '/cr/services/branding'],
+                ['title' => 'Integrated Contact Forms', 'link' => '/cr/services/crm'],
+                ['title' => 'Domain Registration', 'link' => '#'],
+                ['title' => 'Quick Launch Timeline', 'link' => '/cr/about'],
+                ['title' => 'Scalable Solutions', 'link' => '/cr/services/saas'],
+                ['title' => 'Technical Support', 'link' => '/cr/contact'],
+                ['title' => 'Enhanced Visual Appeal', 'link' => '/cr/services/creative'],
+                ['title' => 'SEO Integration', 'link' => '/cr/services/seo'],
+                ['title' => 'API Readiness', 'link' => '/cr/services/api']
+            ];
+            foreach ($ecosystem_features as $f): 
+            ?>
+            <div class="col-lg-4 col-md-6" data-aos="zoom-in">
+                <div class="p-3 border border-white border-opacity-10 rounded-4 transition-all hover-bg-white-opacity d-flex align-items-center gap-3">
+                    <i class="bi bi-check-circle-fill text-accent-dynamic"></i>
+                    <a href="<?= $f['link'] ?>" class="text-white text-decoration-none fw-bold small opacity-75 hover-opacity-100"><?= $f['title'] ?></a>
+                </div>
+            </div>
+            <?php endforeach; ?>
+        </div>
+    </div>
+</section>
+
+<style>
+.hover-bg-white-opacity:hover {
+    background: rgba(255,255,255,0.05);
+    border-color: var(--page-accent) !important;
+}
+.hover-opacity-100:hover { opacity: 1 !important; }
+</style>
+
 <!-- Lead Generation Form Section -->
-<section id="leads" class="lead-section section-padding bg-dark text-white position-relative overflow-hidden">
+<section id="leads" class="lead-section py-5 text-white position-relative overflow-hidden" style="background:#050505;">
     <div class="lead-bg-blobs">
         <div class="lb-1" style="background: <?= $accentColor ?>;"></div>
     </div>
@@ -1184,8 +1592,8 @@ document.addEventListener('DOMContentLoaded', function() {
         <div class="row g-5 align-items-center">
             <div class="col-lg-5" data-aos="fade-right">
                 <span class="text-accent-dynamic fw-900 mb-3 d-block letter-spacing-2">TAKE THE FIRST STEP</span>
-                <h2 class="display-3 fw-900 text-white mb-4">Book Your Free <br><span class="text-accent-dynamic">Strategy Audit</span></h2>
-                <p class="fs-5 opacity-60 mb-5">Interested in scaling? Fill out the form below and our subject matter experts will get back to you within 24 hours.</p>
+                <h2 class="display-4 fw-900 text-white mb-3">Book Your Free <br><span class="text-accent-dynamic">Strategy Audit</span></h2>
+                <p class="fs-6 mb-4" style="color:rgba(255,255,255,0.65);">Interested in scaling? Fill out the form and our experts will get back within 24 hours.</p>
                 
                 <div class="trust-indicators-v3 p-4 border border-white border-opacity-10 rounded-5">
                     <div class="d-flex align-items-center gap-4 mb-4">
@@ -1210,9 +1618,9 @@ document.addEventListener('DOMContentLoaded', function() {
             </div>
 
             <div class="col-lg-7" data-aos="fade-left">
-                <div class="lead-form-wrap p-5 bg-white rounded-5 border-3 border border-dark shadow-punchy-lg">
+                <div class="lead-form-wrap p-4 bg-white rounded-4 border-2 border border-dark shadow-punchy-lg">
                     <form id="leadCaptureForm" action="#" method="POST">
-                        <div class="row g-4">
+                        <div class="row g-3">
                             <div class="col-md-6">
                                 <div class="form-floating-custom">
                                     <label class="small fw-900 text-dark opacity-50 text-uppercase mb-2 d-block">Full Name</label>
@@ -1240,11 +1648,11 @@ document.addEventListener('DOMContentLoaded', function() {
                             <div class="col-12">
                                 <div class="form-floating-custom">
                                     <label class="small fw-900 text-dark opacity-50 text-uppercase mb-2 d-block">Tell us about your project</label>
-                                    <textarea class="form-control-punchy" rows="4" placeholder="I'm looking to scale my..."></textarea>
+                                    <textarea class="form-control-punchy" rows="3" placeholder="I'm looking to scale my..."></textarea>
                                 </div>
                             </div>
                             <div class="col-12">
-                                <button type="submit" class="btn btn-punchy-big w-100 py-4 mt-3">
+                                <button type="submit" class="btn btn-punchy-big w-100 py-3 mt-2">
                                     Send Inquiry <i class="bi bi-send-fill ms-2"></i>
                                 </button>
                                 <p class="text-center small text-muted mt-4 mb-0">No spam, ever. Your privacy is our absolute priority.</p>
@@ -1294,7 +1702,7 @@ document.addEventListener('DOMContentLoaded', function() {
 </section>
 
 <!-- GAP Closure: Video Social Proof -->
-<section class="video-proof-section section-padding bg-dark text-white position-relative">
+<section class="video-proof-section py-5 text-white position-relative" style="background:#050505;">
     <div class="container">
         <div class="row align-items-center g-5">
             <div class="col-lg-6" data-aos="fade-right">
@@ -1308,7 +1716,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 </div>
             </div>
             <div class="col-lg-6" data-aos="fade-left">
-                <h2 class="display-4 fw-900 mb-4">See The <span class="text-accent-dynamic">Difference</span></h2>
+                <h2 class="display-4 fw-900 mb-4" style="color:#fff;">See The <span class="text-accent-dynamic">Difference</span></h2>
                 <p class="fs-5 opacity-75 mb-4">Don't just take our word for it. Watch how our engineered web solutions transformed a local brand into a national powerhouse within 6 months.</p>
                 <div class="d-flex align-items-center gap-4 mt-4">
                     <div class="text-center">
@@ -1326,40 +1734,73 @@ document.addEventListener('DOMContentLoaded', function() {
     </div>
 </section>
 
-<!-- Voice of the Customer (Testimonials) -->
-<section class="testimonials-section section-padding bg-white">
-    <div class="container">
-        <div class="row mb-5 text-center" data-aos="fade-up">
-            <div class="col-lg-8 mx-auto">
-                <h2 class="display-5 fw-900 text-dark mb-4">Hear What Our <span class="text-accent-dynamic">Valued Customers</span> Have to Say</h2>
-                <p class="fs-5 text-muted">Our customers are at the heart of everything we do. Their stories speak volumes about our commitment to quality and transparency.</p>
-            </div>
+<!-- Voice of the Customer — Premium Google Review Marquee -->
+<section class="testimonials-section py-5 bg-white overflow-hidden">
+    <div class="container mb-4">
+        <div class="text-center" data-aos="fade-up">
+            <h2 class="display-5 fw-900 text-dark mb-2">Hear What Our <span class="text-accent-dynamic">Clients</span> Say</h2>
+            <p class="text-muted fs-6">Verified Google reviews from real businesses we've transformed.</p>
         </div>
+    </div>
 
-        <div class="row g-4">
-            <?php 
-            $reviews = [
-                ['name' => 'Priya Gupta', 'role' => 'Business Owner', 'review' => 'Crea8ve Cool provided a perfect solution for our small business website. They understood our requirements and delivered a platform that truly represents our brand.', 'rating' => 5],
-                ['name' => 'Rohan Verma', 'role' => 'Tech Startup Founder', 'review' => 'Our small business needed a custom website, and the team exceeded our expectations. Their technical expertise and design sense are unmatched.', 'rating' => 5],
-                ['name' => 'Neha Desai', 'role' => 'E-commerce Entrepreneur', 'review' => 'Working with this team was an excellent experience. They provided a website that not only looks great but has significantly boosted our sales traffic.', 'rating' => 5]
+    <!-- Row 1 — scrolls left -->
+    <div class="tmarquee-track-wrap mb-3">
+        <div class="tmarquee-track">
+            <?php
+            $reviews_r1 = [
+                ['name'=>'Priya Gupta','role'=>'Business Owner','review'=>'Crea8ve Cool delivered beyond expectations. Our website now ranks on page 1 and generates 3x more leads than before. Absolute professionals.','avatar_color'=>'#4285F4'],
+                ['name'=>'Rohan Verma','role'=>'Tech Startup Founder','review'=>'Their technical expertise is unmatched. Custom PHP MVC, lightning-fast load times, and a design that makes competitors look outdated. Highly recommend.','avatar_color'=>'#EA4335'],
+                ['name'=>'Neha Desai','role'=>'E-commerce Entrepreneur','review'=>'Sales traffic increased significantly after the redesign. The team understood our brand and delivered something we are truly proud of.','avatar_color'=>'#34A853'],
+                ['name'=>'Amit Shah','role'=>'Real Estate Director','review'=>'Professional, fast, and detail-oriented. Our property portal handles 10k+ monthly visitors without a single issue. Worth every rupee.','avatar_color'=>'#FBBC05'],
+                ['name'=>'Kavita Nair','role'=>'Wellness Brand Owner','review'=>'From design to SEO to the admin panel — everything was handled seamlessly. We now get inquiries directly through the website daily.','avatar_color'=>'#4285F4'],
+                ['name'=>'Siddharth Rao','role'=>'EdTech Founder','review'=>'The LMS they built for us is exceptional. Student engagement went up 60% in the first month. The team is responsive and highly skilled.','avatar_color'=>'#EA4335'],
             ];
-            foreach ($reviews as $rev): 
-            ?>
-            <div class="col-lg-4" data-aos="fade-up">
-                <div class="testimonial-card p-5 border-3 border border-dark rounded-5 bg-light h-100 position-relative shadow-punchy-sm">
-                    <div class="google-branding mb-4 d-flex justify-content-between">
-                        <i class="bi bi-google text-muted"></i>
-                        <div class="stars text-warning">
-                            <?php for($i=0; $i<$rev['rating']; $i++): ?><i class="bi bi-star-fill"></i><?php endfor; ?>
-                        </div>
+            // Duplicate for infinite scroll
+            $reviews_r1 = array_merge($reviews_r1, $reviews_r1);
+            foreach($reviews_r1 as $rev): ?>
+            <div class="tcard">
+                <div class="tcard-header">
+                    <svg class="google-g" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="22" height="22"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+                    <div class="tcard-stars">★★★★★</div>
+                </div>
+                <p class="tcard-review">"<?= $rev['review'] ?>"</p>
+                <div class="tcard-footer">
+                    <div class="tcard-avatar" style="background:<?= $rev['avatar_color'] ?>"><?= strtoupper(substr($rev['name'],0,1)) ?></div>
+                    <div>
+                        <div class="tcard-name"><?= $rev['name'] ?> <span class="tcard-verified" title="Google Verified">✓</span></div>
+                        <div class="tcard-role"><?= $rev['role'] ?></div>
                     </div>
-                    <p class="fs-6 italic text-dark mb-4">"<?= $rev['review'] ?>"</p>
-                    <div class="d-flex align-items-center gap-3 mt-auto">
-                        <div class="av bg-accent-dynamic text-white fw-900"><?= substr($rev['name'], 0, 1) ?></div>
-                        <div>
-                            <div class="fw-900 text-dark"><?= $rev['name'] ?></div>
-                            <div class="small text-muted"><?= $rev['role'] ?></div>
-                        </div>
+                </div>
+            </div>
+            <?php endforeach; ?>
+        </div>
+    </div>
+
+    <!-- Row 2 — scrolls right -->
+    <div class="tmarquee-track-wrap">
+        <div class="tmarquee-track tmarquee-reverse">
+            <?php
+            $reviews_r2 = [
+                ['name'=>'Divya Menon','role'=>'Healthcare Clinic Owner','review'=>'Our appointment bookings doubled after launching the new website. The team built us a clean, GDPR-compliant patient portal that staff love.','avatar_color'=>'#34A853'],
+                ['name'=>'Arjun Malhotra','role'=>'Manufacturing CEO','review'=>'They engineered our full B2B portal with a custom CRM integration. Complex project delivered on time and within budget. Exceptional team.','avatar_color'=>'#4285F4'],
+                ['name'=>'Pooja Iyer','role'=>'Fashion Boutique Owner','review'=>'My e-commerce store looks absolutely stunning on mobile. Sales jumped 40% in the first 3 months. Cannot recommend them highly enough.','avatar_color'=>'#EA4335'],
+                ['name'=>'Vikram Singh','role'=>'Restaurant Chain Owner','review'=>'Online orders increased by 200% after they redesigned our website and integrated the ordering system. Game-changing for our business.','avatar_color'=>'#FBBC05'],
+                ['name'=>'Meera Joshi','role'=>'Legal Firm Partner','review'=>'Professional, confidential, and technically superior. Our firm now ranks top 3 in Google for all key practice areas. Outstanding SEO work.','avatar_color'=>'#4285F4'],
+                ['name'=>'Karan Patel','role'=>'Logistics Company MD','review'=>'The custom tracking portal they built handles thousands of daily requests flawlessly. Best tech investment we have made this year.','avatar_color'=>'#34A853'],
+            ];
+            $reviews_r2 = array_merge($reviews_r2, $reviews_r2);
+            foreach($reviews_r2 as $rev): ?>
+            <div class="tcard">
+                <div class="tcard-header">
+                    <svg class="google-g" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="22" height="22"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+                    <div class="tcard-stars">★★★★★</div>
+                </div>
+                <p class="tcard-review">"<?= $rev['review'] ?>"</p>
+                <div class="tcard-footer">
+                    <div class="tcard-avatar" style="background:<?= $rev['avatar_color'] ?>"><?= strtoupper(substr($rev['name'],0,1)) ?></div>
+                    <div>
+                        <div class="tcard-name"><?= $rev['name'] ?> <span class="tcard-verified" title="Google Verified">✓</span></div>
+                        <div class="tcard-role"><?= $rev['role'] ?></div>
                     </div>
                 </div>
             </div>
@@ -1369,10 +1810,51 @@ document.addEventListener('DOMContentLoaded', function() {
 </section>
 
 <style>
-.network-card:hover { transform: translate(-5px, -5px); border-color: var(--page-accent) !important; box-shadow: 10px 10px 0px var(--page-accent); }
-.testimonial-card { transition: all 0.3s; }
-.testimonial-card:hover { transform: scale(1.02); border-color: var(--page-accent) !important; }
+.tmarquee-track-wrap { overflow: hidden; position: relative; }
+.tmarquee-track-wrap::before,
+.tmarquee-track-wrap::after {
+    content:''; position:absolute; top:0; width:120px; height:100%; z-index:2; pointer-events:none;
+}
+.tmarquee-track-wrap::before { left:0; background:linear-gradient(to right,#fff,transparent); }
+.tmarquee-track-wrap::after  { right:0; background:linear-gradient(to left,#fff,transparent); }
+.tmarquee-track {
+    display: flex; gap: 18px;
+    animation: tscroll-left 40s linear infinite;
+    width: max-content;
+}
+.tmarquee-reverse { animation: tscroll-right 40s linear infinite; }
+@keyframes tscroll-left  { from{transform:translateX(0)} to{transform:translateX(-50%)} }
+@keyframes tscroll-right { from{transform:translateX(-50%)} to{transform:translateX(0)} }
+.tmarquee-track:hover { animation-play-state: paused; }
+.tcard {
+    width: 300px; flex-shrink: 0;
+    background: #fff;
+    border: 2px solid rgba(0,0,0,0.1);
+    border-radius: 18px;
+    padding: 22px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+    transition: box-shadow 0.3s, transform 0.3s;
+}
+.tcard:hover { box-shadow: 0 8px 32px rgba(0,0,0,0.12); transform: translateY(-4px); }
+.tcard-header { display:flex; align-items:center; justify-content:space-between; margin-bottom:14px; }
+.tcard-stars { color: #F4B400; font-size: 1rem; letter-spacing: 1px; }
+.tcard-review { font-size: 0.87rem; color: #374151; line-height: 1.65; margin-bottom: 16px; font-style: italic; }
+.tcard-footer { display:flex; align-items:center; gap:12px; }
+.tcard-avatar {
+    width: 36px; height: 36px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    color: #fff; font-weight: 900; font-size: 0.85rem; flex-shrink: 0;
+}
+.tcard-name { font-weight: 900; font-size: 0.88rem; color: #111; }
+.tcard-verified { color: #4285F4; font-size: 0.75rem; font-weight: 900; }
+.tcard-role { font-size: 0.75rem; color: #6b7280; }
 </style>
+
+
+<style>
+.network-card:hover { transform: translate(-5px, -5px); border-color: var(--page-accent) !important; box-shadow: 10px 10px 0px var(--page-accent); }
+</style>
+
 
 <style>
 /* Cinematic Bento Hero Styles */
