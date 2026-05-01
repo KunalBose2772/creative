@@ -1,0 +1,23 @@
+{
+  "name": "Crea8ve Cool Digital Agency",
+  "short_name": "Crea8veCool",
+  "description": "High-performance web design, SEO, and business automation systems.",
+  "start_url": "/?utm_source=pwa",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#6A5AE0",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "/public/assets/images/favicon.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/public/assets/images/logo.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

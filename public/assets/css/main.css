@@ -32,6 +32,7 @@
   --brutal-border: 2px solid var(--text-dark);
   --brutal-shadow: 6px 6px 0px var(--text-dark);
   --brutal-shadow-hover: 10px 10px 0px var(--text-dark);
+  --bg-glossy-black: #050505;
 }
 
 /* ---------- Reset & Base ---------- */
@@ -54,7 +55,9 @@ body {
   line-height: 1.7;
   color: var(--text-dark);
   background: #FFFFFF;
-  overflow-x: hidden;
+  overflow-x: hidden !important;
+  width: 100%;
+  position: relative;
   -webkit-font-smoothing: antialiased;
 }
 
@@ -64,7 +67,14 @@ h2,
 h3,
 h4,
 h5,
-h6 {
+h6,
+.display-1,
+.display-2,
+.display-3,
+.display-4,
+.display-5,
+.display-6,
+.h1, .h2, .h3, .h4, .h5, .h6 {
   font-family: 'Clash Display', -apple-system, sans-serif;
   font-weight: 600;
   line-height: 0.95;
@@ -133,8 +143,10 @@ img {
 }
 
 .section-title {
-  font-size: clamp(26px, 3vw, 42px);
+  font-size: clamp(40px, 6vw, 64px) !important;
   font-weight: 800;
+  line-height: 0.95;
+  letter-spacing: -0.03em;
   color: var(--text-dark);
 }
 
@@ -144,6 +156,23 @@ img {
   max-width: 560px;
   margin-left: auto;
   margin-right: auto;
+}
+
+/* ---------- Dark Context Overrides ---------- */
+.bg-glossy-black .section-title,
+.text-white .section-title {
+  color: #FFFFFF !important;
+}
+
+.bg-glossy-black .section-subtitle,
+.text-white .section-subtitle {
+  color: rgba(255, 255, 255, 0.8) !important;
+}
+
+.bg-glossy-black .section-tag {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.2);
+  color: #FFFFFF;
 }
 
 /* ---------- Buttons ---------- */
@@ -325,6 +354,49 @@ img {
   transform: translateY(-3px);
 }
 
+/* Custom Cursor */
+.custom-cursor {
+  width: 8px;
+  height: 8px;
+  background: var(--text-dark);
+  border-radius: 50%;
+  position: fixed;
+  pointer-events: none;
+  z-index: 9999;
+  transition: transform 0.1s ease;
+  mix-blend-mode: difference;
+}
+
+.custom-cursor-follower {
+  width: 40px;
+  height: 40px;
+  background: rgba(106, 90, 224, 0.1);
+  border: 1px solid var(--primary-start);
+  border-radius: 50%;
+  position: fixed;
+  pointer-events: none;
+  z-index: 9998;
+  transition: transform 0.15s ease-out, width 0.3s ease, height 0.3s ease, background 0.3s ease;
+}
+
+.custom-cursor.active {
+  transform: scale(4);
+  background: var(--primary-gradient);
+  mix-blend-mode: normal;
+}
+
+.custom-cursor-follower.active {
+  transform: scale(1.5);
+  background: rgba(106, 90, 224, 0.2);
+  border-color: var(--primary-mid);
+}
+
+@media (max-width: 991px) {
+  .custom-cursor, .custom-cursor-follower {
+    display: none;
+  }
+}
+
 /* ---------- Responsive ---------- */
 @media (max-width: 991px) {
   .section-padding {
@@ -336,8 +408,68 @@ img {
   .section-padding {
     padding: 50px 0;
   }
+  
+  .container {
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+    overflow-x: hidden;
+  }
 
   h1 {
     font-size: clamp(30px, 8vw, 42px);
   }
+
+  .hero-cta-group {
+    flex-wrap: nowrap !important;
+    gap: 8px !important;
+  }
+  
+  .hero-cta-group .btn {
+    padding: 12px 14px !important;
+    font-size: 14px !important;
+    width: 50%;
+    margin-bottom: 0px !important;
+    white-space: nowrap;
+    display: inline-flex;
+    justify-content: center;
+  }
+  
+  .bento-grid {
+    gap: 1rem !important;
+  }
+}
+
+/* Glossy Black Utility */
+.bg-glossy-black {
+  background-color: #000000 !important;
+  background: linear-gradient(135deg, #111111 0%, #000000 100%) !important;
+  color: #FFFFFF !important;
+  position: relative;
+  overflow: hidden;
+}
+
+.bg-glossy-black::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle at center, rgba(255,255,255,0.03) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+/* Stunning Animations */
+[data-aos="reveal-text"] {
+  clip-path: polygon(0 0, 0 0, 0 100%, 0% 100%);
+  transition: clip-path 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+[data-aos="reveal-text"].aos-animate {
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+}
+
+.hover-glow:hover {
+  box-shadow: 0 0 30px var(--primary-start);
+  transform: translateY(-5px);
 }
