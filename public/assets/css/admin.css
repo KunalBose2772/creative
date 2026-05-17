@@ -1,0 +1,442 @@
+/*
+ * Creative Cool — Admin Command Center Stylesheet
+ * Crafted in the high-fidelity style of Epic Momentos Admin System
+ */
+
+:root {
+    --bg-admin: #F8FAFC;          /* Slate-50 background of Epic Momentos */
+    --card-bg: #FFFFFF;           /* Pure White card background */
+    --sidebar-w: 280px;           /* Exact width of sidebar */
+    --accent: #C8A96A;            /* Epic Momentos Imperial Gold Accent Color */
+    --accent-glow: rgba(200, 169, 106, 0.15);
+    --text-primary: #0F172A;      /* Slate-900 Primary Text */
+    --text-secondary: #64748B;    /* Slate-500 Secondary Text */
+    --border-color: #E2E8F0;      /* Slate-200 border */
+    --sidebar-bg: #000000;        /* Pitch Black Sidebar */
+    --input-bg: #F8FAFC;          /* Light Slate Gray Input Background */
+}
+
+body {
+    background-color: var(--bg-admin) !important;
+    font-family: 'Montserrat', 'Jost', sans-serif !important;
+    color: var(--text-primary) !important;
+    overflow-x: hidden;
+}
+
+/* Sidebar Styling - Exactly like Epic Momentos layout */
+.sidebar {
+    width: var(--sidebar-w);
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    background: var(--sidebar-bg);
+    color: #fff;
+    padding: 40px 20px;
+    z-index: 1000;
+    border-right: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 0 !important; /* Edge to edge professional sidebar */
+    display: flex;
+    flex-direction: column;
+}
+
+.brand-admin {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 900;
+    text-transform: uppercase;
+    font-size: 20px;
+    letter-spacing: 2px;
+    margin-bottom: 50px;
+    display: block;
+    text-decoration: none !important;
+    color: #fff !important;
+    padding: 0 10px;
+}
+
+.brand-admin span {
+    color: var(--accent);
+}
+
+.nav-link-admin {
+    color: rgba(255, 255, 255, 0.4) !important;
+    padding: 14px 20px;
+    display: flex;
+    align-items: center;
+    text-decoration: none !important;
+    font-weight: 700;
+    font-size: 13px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    border-radius: 12px;
+    margin-bottom: 8px;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.nav-link-admin i {
+    font-size: 18px;
+    opacity: 0.5;
+    transition: color 0.3s;
+}
+
+.nav-link-admin:hover {
+    color: #fff !important;
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.nav-link-admin.active {
+    color: #000000 !important;
+    background: #ffffff !important;
+    box-shadow: 0 15px 35px rgba(255, 255, 255, 0.1);
+    font-weight: 800;
+}
+
+.nav-link-admin.active i {
+    color: #000000 !important;
+    opacity: 1;
+}
+
+/* Main Content Styling */
+.main-content {
+    margin-left: var(--sidebar-w);
+    padding: 60px 50px;
+    min-height: 100vh;
+}
+
+/* Headers */
+.log-header {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 900;
+    font-size: 32px;
+    letter-spacing: -0.5px;
+    color: var(--text-primary);
+}
+
+/* Stat Cards & Content Cards - Premium Epic Momentos floating style */
+.stat-card {
+    background: var(--card-bg) !important;
+    border: 1px solid var(--border-color) !important;
+    padding: 35px;
+    border-radius: 24px !important;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03) !important;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+.stat-card:hover {
+    border-color: var(--accent) !important;
+    transform: translateY(-5px) !important;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.05), 0 10px 10px -5px rgba(0, 0, 0, 0.02) !important;
+}
+
+.stat-card span {
+    color: var(--text-secondary) !important;
+}
+
+.stat-val {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 900;
+    font-size: 56px;
+    line-height: 1;
+    color: var(--text-primary) !important;
+    background: none !important;
+    -webkit-text-fill-color: initial !important;
+}
+
+.content-card, .edit-card {
+    background: var(--card-bg) !important;
+    border: 1px solid var(--border-color) !important;
+    border-radius: 24px !important;
+    padding: 35px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03) !important;
+    margin-bottom: 30px;
+}
+
+/* Service Registry Cards */
+.service-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 30px;
+}
+
+.service-card-admin {
+    background: var(--card-bg) !important;
+    border: 1px solid var(--border-color) !important;
+    border-radius: 24px !important;
+    padding: 30px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03) !important;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+.service-card-admin:hover {
+    border-color: var(--accent) !important;
+    transform: translateY(-5px) !important;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.05), 0 10px 10px -5px rgba(0, 0, 0, 0.02) !important;
+}
+
+.service-card-admin h3 {
+    color: var(--text-primary) !important;
+}
+
+.service-icon {
+    width: 60px;
+    height: 60px;
+    background: var(--input-bg) !important;
+    border-radius: 16px !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 26px;
+    margin-bottom: 20px;
+    border: 1px solid var(--border-color) !important;
+}
+
+/* Forms & Input fields - Soft slate aesthetics */
+.form-label {
+    font-weight: 700 !important;
+    color: var(--text-secondary) !important;
+    text-transform: uppercase !important;
+    font-size: 11px !important;
+    letter-spacing: 1px !important;
+    margin-bottom: 8px !important;
+}
+
+.br-input-admin {
+    background-color: var(--input-bg) !important;
+    border: 1px solid var(--border-color) !important;
+    color: var(--text-primary) !important;
+    border-radius: 12px !important;
+    padding: 12px 18px !important;
+    font-weight: 600 !important;
+    font-size: 14px !important;
+    transition: all 0.2s ease-in-out;
+}
+
+.br-input-admin::placeholder {
+    color: #94A3B8 !important;
+    font-weight: 500;
+}
+
+.br-input-admin:focus {
+    border-color: var(--accent) !important;
+    box-shadow: 0 0 0 4px var(--accent-glow) !important;
+    outline: none !important;
+}
+
+/* Buttons - Premium rounded pill buttons */
+.btn {
+    border-radius: 12px !important;
+    font-weight: 700 !important;
+    font-size: 13px !important;
+    letter-spacing: 0.5px;
+    padding: 12px 24px !important;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+.btn-primary {
+    background-color: var(--text-primary) !important;
+    border: none !important;
+    color: #ffffff !important;
+}
+
+.btn-primary:hover {
+    background-color: #000000 !important;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1) !important;
+}
+
+.btn-outline-warning {
+    color: var(--accent) !important;
+    border-color: var(--accent) !important;
+    background: transparent !important;
+}
+
+.btn-outline-warning:hover {
+    background-color: var(--accent) !important;
+    color: #000000 !important;
+    border-color: var(--accent) !important;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px var(--accent-glow) !important;
+}
+
+/* Tables - Clean modern list layout */
+.table {
+    color: var(--text-primary) !important;
+}
+
+.table thead {
+    background: var(--input-bg) !important;
+}
+
+.table th {
+    border: none !important;
+    padding: 20px 24px !important;
+    text-transform: uppercase !important;
+    font-size: 11px !important;
+    letter-spacing: 1.5px !important;
+    color: var(--text-secondary) !important;
+    font-weight: 700 !important;
+}
+
+.table td {
+    padding: 20px 24px !important;
+    vertical-align: middle !important;
+    border-bottom: 1px solid var(--border-color) !important;
+    font-weight: 600 !important;
+    color: var(--text-primary) !important;
+}
+
+.table tr:last-child td {
+    border-bottom: none !important;
+}
+
+/* Badges */
+.status-badge {
+    padding: 6px 14px !important;
+    border-radius: 30px !important;
+    font-size: 10px !important;
+    font-weight: 800 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.5px;
+    display: inline-block;
+}
+
+.status-new {
+    background: var(--accent-glow) !important;
+    color: var(--accent) !important;
+    border: 1px solid var(--accent);
+}
+
+.status-read {
+    background: #E2E8F0 !important;
+    color: var(--text-secondary) !important;
+}
+
+/* Modals & Dialogs */
+.modal-content {
+    background-color: #ffffff !important;
+    border: 1px solid var(--border-color) !important;
+    border-radius: 24px !important;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25) !important;
+}
+
+.modal-header {
+    border-bottom: 1px solid var(--border-color) !important;
+}
+
+.modal-title {
+    color: var(--text-primary) !important;
+    font-family: 'Montserrat', sans-serif !important;
+    font-weight: 900 !important;
+}
+
+.modal-body p, .modal-body label, .modal-body div {
+    color: var(--text-primary) !important;
+}
+
+.modal-body .p-4.bg-black {
+    background-color: var(--input-bg) !important;
+    border: 1px solid var(--border-color) !important;
+    color: var(--text-primary) !important;
+    border-radius: 16px !important;
+}
+
+.btn-close {
+    filter: none !important; /* Custom close styling if needed */
+}
+
+/* Custom Web Scrollbar */
+::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--bg-admin);
+}
+
+::-webkit-scrollbar-thumb {
+    background: #CBD5E1;
+    border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #94A3B8;
+}
+
+/* Subtitles / section indicators */
+.section-tag {
+    background: var(--input-bg) !important;
+    color: var(--accent) !important;
+    padding: 8px 16px !important;
+    border-radius: 8px !important;
+    font-weight: 800 !important;
+    font-size: 10px !important;
+    text-transform: uppercase !important;
+    letter-spacing: 1px !important;
+    border: 1px solid var(--border-color);
+}
+
+/* Dynamic Add Item Elements in list editing */
+.rel-item {
+    background: var(--input-bg) !important;
+    border: 1px solid var(--border-color) !important;
+    border-radius: 16px !important;
+    padding: 25px;
+    margin-bottom: 15px;
+}
+
+.remove-btn {
+    color: #EF4444 !important;
+}
+
+/* CKEditor Styling for the light dashboard but premium editor experience */
+.ck-editor__editable_inline {
+    background-color: #ffffff !important;
+    color: var(--text-primary) !important;
+    border: 1px solid var(--border-color) !important;
+    border-top: none !important;
+}
+
+.ck-toolbar {
+    background-color: var(--input-bg) !important;
+    border: 1px solid var(--border-color) !important;
+}
+
+.ck-button {
+    color: var(--text-primary) !important;
+}
+
+.ck-button:hover {
+    background-color: var(--border-color) !important;
+}
+
+.ck-button.ck-on {
+    background-color: var(--accent) !important;
+    color: #ffffff !important;
+}
+
+/* Showcase grid edit additions */
+.badge.bg-dark {
+    background-color: var(--text-primary) !important;
+    border: 1px solid var(--border-color);
+}
+.btn-dark {
+    background-color: var(--text-primary) !important;
+    border: none !important;
+    color: #fff !important;
+}
+.btn-dark:hover {
+    background-color: #000000 !important;
+}
+.btn-outline-dark {
+    border-color: var(--text-primary) !important;
+    color: var(--text-primary) !important;
+}
+.btn-outline-dark:hover {
+    background-color: var(--text-primary) !important;
+    color: #fff !important;
+}
+
+.bg-dark {
+    background-color: var(--input-bg) !important;
+    border: 1px solid var(--border-color);
+}
