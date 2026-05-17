@@ -91,8 +91,8 @@
         <div class="d-flex flex-column flex-md-row justify-content-between align-items-center py-4 gap-3">
             <span class="small fw-bold opacity-25">© <?= date('Y') ?> CREA8VE COOL / ALL RIGHTS RESERVED.</span>
             <div class="d-flex gap-4">
-                <a href="#" class="small text-white text-decoration-none fw-bold opacity-25 hover-opacity-100" title="View our Privacy Policy">PRIVACY</a>
-                <a href="#" class="small text-white text-decoration-none fw-bold opacity-25 hover-opacity-100" title="View our Terms and Conditions">TERMS</a>
+                <a href="<?= BASE_URL ?>privacy-policy" class="small text-white text-decoration-none fw-bold opacity-25 hover-opacity-100" title="View our Privacy Policy">PRIVACY</a>
+                <a href="<?= BASE_URL ?>terms" class="small text-white text-decoration-none fw-bold opacity-25 hover-opacity-100" title="View our Terms and Conditions">TERMS</a>
             </div>
         </div>
     </div>

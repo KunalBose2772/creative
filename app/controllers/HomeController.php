@@ -233,6 +233,34 @@ class HomeController {
         require_once APP_PATH . '/views/layouts/layout.php';
     }
 
+    public function privacyPolicy() {
+        $data = array_merge($this->getSharedData(), [
+            'title' => 'Privacy Policy | Crea8ve Cool Digital Agency',
+            'meta_description' => 'Read our privacy policy to understand how we collect, protect, and use your data when using Crea8ve Cool web solutions.',
+            'hero_color' => '#6A5AE0',
+            'breadcrumbs' => [
+                ['name' => 'Home', 'url' => ''],
+                ['name' => 'Privacy Policy', 'url' => 'privacy-policy']
+            ]
+        ]);
+        $view = APP_PATH . '/views/privacy_policy.php';
+        require_once APP_PATH . '/views/layouts/layout.php';
+    }
+
+    public function terms() {
+        $data = array_merge($this->getSharedData(), [
+            'title' => 'Terms of Service | Crea8ve Cool Digital Agency',
+            'meta_description' => 'Read our terms of service to understand your rights, responsibilities, and guidelines when partnering with Crea8ve Cool.',
+            'hero_color' => '#FF5E36',
+            'breadcrumbs' => [
+                ['name' => 'Home', 'url' => ''],
+                ['name' => 'Terms of Service', 'url' => 'terms']
+            ]
+        ]);
+        $view = APP_PATH . '/views/terms.php';
+        require_once APP_PATH . '/views/layouts/layout.php';
+    }
+
     public function videoPortfolio() {
         $data = array_merge($this->getSharedData(), [
             'title' => 'Video Portfolio — Cinematic 3D & Brand Showreels',

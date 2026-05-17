@@ -101,6 +101,12 @@ switch ($uri) {
     case 'locations':
         $controller->locations();
         break;
+    case 'privacy-policy':
+        $controller->privacyPolicy();
+        break;
+    case 'terms':
+        $controller->terms();
+        break;
     case 'sitemap.xml':
     case 'sitemap':
         $controller->sitemap();

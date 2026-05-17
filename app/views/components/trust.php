@@ -2,21 +2,21 @@
 $ecosystem_tools = [
     [
         'name' => 'Next.js',
-        'url' => 'https://cdn.simpleicons.org/nextdotjs/000000',
+        'url' => 'https://cdn.jsdelivr.net/npm/simple-icons@13.0.0/icons/nextdotjs.svg',
         'glow' => '#000000',
         'type' => 'SaaS Web Engineering',
         'link' => 'https://nextjs.org'
     ],
     [
         'name' => 'React & Native',
-        'url' => 'https://cdn.simpleicons.org/react/61DAFB',
+        'url' => 'https://cdn.jsdelivr.net/npm/simple-icons@13.0.0/icons/react.svg',
         'glow' => '#61DAFB',
         'type' => 'App Development',
         'link' => 'https://react.dev'
     ],
     [
         'name' => 'Expo',
-        'url' => 'https://cdn.simpleicons.org/expo/000020',
+        'url' => 'https://cdn.jsdelivr.net/npm/simple-icons@13.0.0/icons/expo.svg',
         'glow' => '#000020',
         'type' => 'Universal Mobile SDK',
         'link' => 'https://expo.dev'
@@ -30,56 +30,56 @@ $ecosystem_tools = [
     ],
     [
         'name' => 'Adobe Premiere',
-        'url' => 'https://cdn.simpleicons.org/adobepremierepro/EA77FF',
+        'url' => 'https://cdn.jsdelivr.net/npm/simple-icons@13.0.0/icons/adobepremierepro.svg',
         'glow' => '#ea77ff',
         'type' => 'Video Production',
         'link' => 'https://www.adobe.com/products/premiere.html'
     ],
     [
         'name' => 'After Effects',
-        'url' => 'https://cdn.simpleicons.org/adobeaftereffects/9999FF',
+        'url' => 'https://cdn.jsdelivr.net/npm/simple-icons@13.0.0/icons/adobeaftereffects.svg',
         'glow' => '#9999ff',
         'type' => '3D VFX & Motion',
         'link' => 'https://www.adobe.com/products/aftereffects.html'
     ],
     [
         'name' => 'SEMrush',
-        'url' => 'https://cdn.simpleicons.org/semrush/FF642D',
+        'url' => 'https://cdn.jsdelivr.net/npm/simple-icons@13.0.0/icons/semrush.svg',
         'glow' => '#FF642D',
         'type' => 'SEO Dominance',
         'link' => 'https://www.semrush.com'
     ],
     [
         'name' => 'Ahrefs',
-        'url' => 'https://cdn.simpleicons.org/ahrefs/FFB11B',
+        'is_inline' => true,
         'glow' => '#FFB11B',
         'type' => 'Search Intelligence',
         'link' => 'https://ahrefs.com'
     ],
     [
         'name' => 'Shopify',
-        'url' => 'https://cdn.simpleicons.org/shopify/96bf48',
+        'url' => 'https://cdn.jsdelivr.net/npm/simple-icons@13.0.0/icons/shopify.svg',
         'glow' => '#96bf48',
         'type' => 'E-Commerce Scale',
         'link' => 'https://www.shopify.com'
     ],
     [
         'name' => 'WordPress',
-        'url' => 'https://cdn.simpleicons.org/wordpress/21759B',
+        'url' => 'https://cdn.jsdelivr.net/npm/simple-icons@13.0.0/icons/wordpress.svg',
         'glow' => '#21759B',
         'type' => 'CMS Development',
         'link' => 'https://wordpress.org'
     ],
     [
         'name' => 'Google Ads',
-        'url' => 'https://cdn.simpleicons.org/googleads/4285F4',
+        'url' => 'https://cdn.jsdelivr.net/npm/simple-icons@13.0.0/icons/googleads.svg',
         'glow' => '#4285F4',
         'type' => 'Paid Advertising',
         'link' => 'https://ads.google.com'
     ],
     [
         'name' => 'Meta Ads',
-        'url' => 'https://cdn.simpleicons.org/meta/0064F1',
+        'url' => 'https://cdn.jsdelivr.net/npm/simple-icons@13.0.0/icons/meta.svg',
         'glow' => '#0064F1',
         'type' => 'Social Distribution',
         'link' => 'https://ads.facebook.com'
@@ -93,42 +93,42 @@ $ecosystem_tools = [
     ],
     [
         'name' => 'Figma',
-        'url' => 'https://cdn.simpleicons.org/figma/F24E1E',
+        'url' => 'https://cdn.jsdelivr.net/npm/simple-icons@13.0.0/icons/figma.svg',
         'glow' => '#F24E1E',
         'type' => 'UI/UX Blueprinting',
         'link' => 'https://www.figma.com'
     ],
     [
         'name' => 'Webflow',
-        'url' => 'https://cdn.simpleicons.org/webflow/4353FF',
+        'url' => 'https://cdn.jsdelivr.net/npm/simple-icons@13.0.0/icons/webflow.svg',
         'glow' => '#4353FF',
         'type' => 'No-Code Platforms',
         'link' => 'https://webflow.com'
     ],
     [
         'name' => 'Canva',
-        'url' => 'https://cdn.simpleicons.org/canva/00C4CC',
+        'url' => 'https://cdn.jsdelivr.net/npm/simple-icons@13.0.0/icons/canva.svg',
         'glow' => '#00C4CC',
         'type' => 'Collaborative Assets',
         'link' => 'https://www.canva.com'
     ],
     [
         'name' => 'Razorpay',
-        'url' => 'https://cdn.simpleicons.org/razorpay/3395FF',
+        'url' => 'https://cdn.jsdelivr.net/npm/simple-icons@13.0.0/icons/razorpay.svg',
         'glow' => '#3395FF',
         'type' => 'Payment Gateway',
         'link' => 'https://razorpay.com'
     ],
     [
         'name' => 'PhonePe',
-        'url' => 'https://cdn.simpleicons.org/phonepe/5f259f',
+        'url' => 'https://cdn.jsdelivr.net/npm/simple-icons@13.0.0/icons/phonepe.svg',
         'glow' => '#5f259f',
         'type' => 'UPI Payments',
         'link' => 'https://phonepe.com'
     ],
     [
         'name' => 'PHP Engineering',
-        'url' => 'https://cdn.simpleicons.org/php/777BB4',
+        'url' => 'https://cdn.jsdelivr.net/npm/simple-icons@13.0.0/icons/php.svg',
         'glow' => '#777BB4',
         'type' => 'Backend Engineering',
         'link' => 'https://php.net'
@@ -170,10 +170,17 @@ $display_tools = array_merge($ecosystem_tools, $ecosystem_tools, $ecosystem_tool
                                      style="--brand-glow: <?= $tool['glow'] ?>;">
                                     <div class="medallion-inner">
                                         <?php if (isset($tool['is_inline']) && $tool['is_inline']): ?>
-                                            <!-- Bulletproof inline SVG logo for Stripe -->
-                                            <svg viewBox="0 0 40 40" class="brand-vector-symbol" style="width: 32px; height: 32px; fill: #635BFF;">
-                                                <path d="M19.1 13.9c0-1.2 1-1.7 2.6-1.7 1.8 0 3.8.7 5.1 1.4l1.3-4.5c-1.3-.6-3.4-1.2-5.7-1.2-5 0-8.3 2.5-8.3 7 0 7.4 10.1 6.2 10.1 9.4 0 1.4-1.2 1.9-3 1.9-2.2 0-4.6-1-5.9-1.8l-1.3 4.5c1.6.8 4.1 1.5 6.6 1.5 5.3 0 8.7-2.5 8.7-7.2-.1-7.7-10.2-6.5-10.1-9z"/>
-                                            </svg>
+                                            <?php if ($tool['name'] === 'Stripe Payments'): ?>
+                                                <!-- Bulletproof inline SVG logo for Stripe -->
+                                                <svg viewBox="0 0 40 40" class="brand-vector-symbol" style="width: 32px; height: 32px; fill: #635BFF;">
+                                                    <path d="M19.1 13.9c0-1.2 1-1.7 2.6-1.7 1.8 0 3.8.7 5.1 1.4l1.3-4.5c-1.3-.6-3.4-1.2-5.7-1.2-5 0-8.3 2.5-8.3 7 0 7.4 10.1 6.2 10.1 9.4 0 1.4-1.2 1.9-3 1.9-2.2 0-4.6-1-5.9-1.8l-1.3 4.5c1.6.8 4.1 1.5 6.6 1.5 5.3 0 8.7-2.5 8.7-7.2-.1-7.7-10.2-6.5-10.1-9z"/>
+                                                </svg>
+                                            <?php elseif ($tool['name'] === 'Ahrefs'): ?>
+                                                <!-- Bulletproof inline SVG logo for Ahrefs -->
+                                                <svg viewBox="0 0 24 24" class="brand-vector-symbol" style="width: 32px; height: 32px; fill: #FFB11B;">
+                                                    <path d="M2 19.5h20v2H2zm4-3h3v-6H6zm5-4h3v-10h-3zm5-2h3v-6h-3z"/>
+                                                </svg>
+                                            <?php endif; ?>
                                         <?php else: ?>
                                             <img src="<?= $tool['url'] ?>" alt="<?= $tool['name'] ?>" title="<?= $tool['name'] ?>" class="brand-vector-symbol" loading="lazy" width="64" height="64">
                                         <?php endif; ?>
