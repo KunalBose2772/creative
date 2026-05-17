@@ -1,4 +1,3 @@
 User-agent: *
 Allow: /
 Sitemap: https://crea8vecool.com/sitemap.xml
-Sitemap: https://crea8vecool.com/crea8ve_sitemap.xml
