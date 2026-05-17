@@ -534,4 +534,20 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  /* ——————————————————————————————
+     17. Auto-dismiss form success alerts after 5 seconds
+  —————————————————————————————— */
+  const successAlerts = document.querySelectorAll('.alert-success');
+  successAlerts.forEach(alert => {
+    setTimeout(() => {
+      alert.style.transition = 'opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1)';
+      alert.style.opacity = '0';
+      alert.style.transform = 'translateY(-10px)';
+      setTimeout(() => {
+        alert.remove();
+      }, 800);
+    }, 5000);
+  });
+
 });
+

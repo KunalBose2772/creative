@@ -208,7 +208,7 @@
                     </div>
                 </li>
                             </ul>
-                            <a href="<?= BASE_URL ?>booking" class="btn btn-gradient btn-sm px-4 ms-2" title="Get Started on your custom project">Get Started <i class="bi bi-arrow-right ms-1"></i></a>
+                            <a href="<?= BASE_URL ?>contact" class="btn btn-gradient btn-sm px-4 ms-2" title="Get Started on your custom project">Get Started <i class="bi bi-arrow-right ms-1"></i></a>
         </div>
     </div>
 </nav>

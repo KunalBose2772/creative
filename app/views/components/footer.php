@@ -10,7 +10,7 @@
             <div class="col-lg-4 text-lg-end">
                 <p class="fs-5 mb-4 opacity-75" style="max-width: 400px; margin-left: auto;">Stop being just another website. Be the benchmark in your industry.</p>
                 <div class="d-flex gap-3 justify-content-lg-end">
-                    <a href="mailto:info@crea8vecool.com" class="footer-cta-pill" title="Send an Email to Crea8ve Cool Support">GET IN TOUCH <i class="bi bi-arrow-down-right ms-2"></i></a>
+                    <a href="mailto:crea8vecool@gmail.com" class="footer-cta-pill" title="Send an Email to Crea8ve Cool Support">GET IN TOUCH <i class="bi bi-arrow-down-right ms-2"></i></a>
                 </div>
             </div>
         </div>
@@ -47,7 +47,7 @@
                     </div>
                     <div class="d-flex align-items-center gap-2">
                         <i class="bi bi-envelope"></i>
-                        <a href="mailto:info@crea8vecool.com" class="small fw-bold text-white text-decoration-none">INFO@CREA8VECOOL.COM</a>
+                        <a href="mailto:crea8vecool@gmail.com" class="small fw-bold text-white text-decoration-none">CREA8VECOOL@GMAIL.COM</a>
                     </div>
                     <div class="d-flex align-items-center gap-2">
                         <i class="bi bi-phone"></i>

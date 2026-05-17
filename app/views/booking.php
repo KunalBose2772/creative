@@ -366,7 +366,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
 
         currentStep = step;
-        window.scrollTo({ top: document.querySelector('.planner-steps-wrapper').offsetTop - 120, behavior: 'smooth' });
+        // Stay in place; do not scroll viewport on step changes
     }
 
     // Next Buttons

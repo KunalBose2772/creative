@@ -43,15 +43,15 @@ require_once APP_PATH . '/views/components/page_hero.php';
             <div class="col-md-6" data-aos="fade-up">
                 <div class="contact-method-card p-5 bg-light rounded-5 border-3 border border-dark shadow-punchy-sm h-100">
                     <span class="text-accent-dynamic fw-bold small letter-spacing-2 mb-3 d-block">GENERAL INQUIRY</span>
-                    <a href="mailto:info@crea8vecool.com" class="h2 fw-900 text-dark text-decoration-none d-inline-block hover-accent" title="Send an Email to Crea8ve Cool Support">info@<br>CREA8VECOOL.com</a>
+                    <a href="mailto:crea8vecool@gmail.com" class="h3 fw-900 text-dark text-decoration-none d-inline-block hover-accent mb-3" title="Send an Email to Crea8ve Cool Support" style="word-break: break-all;">crea8vecool@gmail.com</a>
                     <p class="text-muted mb-0">For partnerships, speaking engagements, or just a quick chat about your next big idea.</p>
                 </div>
             </div>
             <div class="col-md-6" data-aos="fade-up" data-aos-delay="100">
                 <div class="contact-method-card p-5 bg-dark text-white rounded-5 border-3 border border-dark shadow-punchy-sm h-100">
                     <span class="text-accent-dynamic fw-bold small letter-spacing-2 mb-3 d-block">ACCELERATED SUPPORT</span>
-                    <a href="tel:+919972988194" class="h2 fw-900 text-white text-decoration-none d-inline-block hover-accent">+91 99729<br>88194</a>
-                    <p class="opacity-50 mb-0">Direct access for current partners and high-priority enterprise audit requests.</p>
+                    <a href="tel:+919972988194" class="h3 fw-900 text-white text-decoration-none d-inline-block hover-accent mb-3">+91 99729 88194</a>
+                    <p class="text-light opacity-75 mb-0">Direct access for current partners and high-priority enterprise audit requests.</p>
                 </div>
             </div>
         </div>

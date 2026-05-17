@@ -86,7 +86,7 @@ require_once APP_PATH . '/views/components/page_hero.php';
                     <h4 class="fw-900 mb-1"><?= $job['title'] ?></h4>
                     <span class="small opacity-50 fw-bold letter-spacing-1"><?= $job['type'] ?> • <?= $job['stack'] ?></span>
                 </div>
-                <a href="mailto:careers@crea8vecool.com?subject=Application for <?= $job['title'] ?>" class="btn btn-dark fw-900 letter-spacing-1 rounded-3 px-4 py-3">APPLY NOW</a>
+                <a href="mailto:crea8vecool@gmail.com?subject=Application for <?= $job['title'] ?>" class="btn btn-dark fw-900 letter-spacing-1 rounded-3 px-4 py-3">APPLY NOW</a>
             </div>
             <?php endforeach; ?>
         </div>
