@@ -134,7 +134,9 @@ require_once APP_PATH . '/views/components/page_hero.php';
         <div class="row g-5">
             <?php 
             $i = 0;
-            foreach ($data['catalog'] as $slug => $item): 
+            foreach ($data['catalog'] as $item): 
+                $slug = $item['slug'] ?? '';
+                $desc = $item['desc'] ?? $item['description'] ?? '';
                 $delay = ($i % 2) * 100;
                 $i++;
             ?>
@@ -147,7 +149,7 @@ require_once APP_PATH . '/views/components/page_hero.php';
                     </div>
                     <div class="smc-content">
                         <h2 class="h2 fw-900 mb-3 text-dark"><?= $item['title'] ?></h2>
-                        <p class="text-muted fs-5"><?= $item['desc'] ?></p>
+                        <p class="text-muted fs-5"><?= $desc ?></p>
                         <div class="mt-5">
                             <a href="<?= BASE_URL ?>services/<?= $slug ?>" class="btn btn-dark btn-lg w-100 py-3 rounded-pill fw-900 border-2" style="border-color: var(--text-dark);">Explore Solution <i class="bi bi-arrow-right ms-2"></i></a>
                         </div>
